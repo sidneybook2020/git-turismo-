@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST TRANSAE | Transporte Privado Ejecutivo Chile</title>
+    <meta name="description" content="Servicio de transporte privado ejecutivo en Santiago de Chile. Traslados aeropuerto, tours vitivinícolas, eventos. Disponible 24/7.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        damasco: {
+                            50: '#fdf2f2', 100: '#fce5e5', 200: '#f9c8c8', 300: '#f49d9d',
+                            400: '#ec6d6d', 500: '#e04545', 600: '#c92a2a', 700: '#a82020',
+                            800: '#8B1A1A', 900: '#6b1515',
+                        },
+                        navy: {
+                            50: '#f0f4f8', 100: '#d9e2ec', 200: '#bcccdc', 300: '#9fb3c8',
+                            400: '#829ab1', 500: '#627d98', 600: '#486581', 700: '#334e68',
+                            800: '#243b53', 900: '#102a43', 950: '#0a1628',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Bebas Neue', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+
+        /* ===== HERO BACKGROUND - Driver Scene ===== */
+        .hero-driver-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .hero-driver-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #0a1628 0%, #1a2d4a 30%, #0f1f35 70%, #050d1a 100%);
+        }
+        .bokeh-layer { position: absolute; inset: 0; overflow: hidden; }
+        .bokeh { position: absolute; border-radius: 50%; filter: blur(1px); opacity: 0.85; }
+        .bokeh-soft { filter: blur(15px); opacity: 0.5; }
+        .street-light {
+            position: absolute; width: 8px; height: 8px; background: #fef3c7; border-radius: 50%;
+            box-shadow: 0 0 20px 8px rgba(254, 243, 199, 0.6), 0 0 40px 15px rgba(254, 243, 199, 0.3);
+        }
+        .dashboard-silhouette {
+            position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+            background: linear-gradient(180deg, transparent 0%, #050d1a 40%, #020610 100%);
+        }
+        .steering-wheel-container {
+            position: absolute; bottom: -15%; left: 50%; transform: translateX(-50%);
+            width: 550px; height: 550px; opacity: 0.85;
+        }
+        .driver-hands { position: absolute; bottom: 0; left: 0; right: 0; height: 45%; }
+        .parallax-layer { will-change: transform; transition: transform 0.1s linear; }
+
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-white { background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(20px); }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #d9e2ec 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .damasco-gradient { background: linear-gradient(135deg, #8B1A1A 0%, #c92a2a 100%); }
+        .navy-gradient { background: linear-gradient(135deg, #0a1628 0%, #102a43 100%); }
+
+        .btn-damasco {
+            background: #8B1A1A;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+        }
+        .btn-damasco:hover {
+            background: #a82020;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 26, 26, 0.5);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8B1A1A 0%, #a82020 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139, 26, 26, 0.5); }
+
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(139, 26, 26, 0.15); }
+        .indicator-card { transition: all 0.3s ease; }
+        .indicator-card:hover { transform: scale(1.05); }
+        .feature-icon {
+            background: linear-gradient(135deg, #8B1A1A 0%, #c92a2a 100%);
+            box-shadow: 0 8px 20px rgba(139, 26, 26, 0.3);
+        }
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .pulse-dot { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .live-indicator::before {
+            content: ''; display: inline-block; width: 8px; height: 8px;
+            background: #10b981; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;
+        }
+        .dashboard-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(139, 26, 26, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(30, 41, 59, 0.2) 0%, transparent 40%),
+                        linear-gradient(180deg, #0a1628 0%, #102a43 100%);
+        }
+        .input-field { transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+        .input-field:focus { border-color: #8B1A1A; box-shadow: 0 0 0 3px rgba(139, 26, 26, 0.1); outline: none; }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+            background: #8B1A1A; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .payment-icon { transition: all 0.3s ease; }
+        .payment-icon:hover { transform: scale(1.1); }
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); }
+        .section-divider { height: 4px; background: linear-gradient(90deg, transparent 0%, #8B1A1A 50%, transparent 100%); }
+        .bmw-car-container {
+            position: relative; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 2rem; overflow: hidden;
+        }
+        .bmw-car-svg { filter: drop-shadow(0 30px 60px rgba(16, 42, 67, 0.4)); }
+        .windshield-frame { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+        .a-pillar-left {
+            position: absolute; top: 0; left: 0; width: 18%; height: 100%;
+            background: linear-gradient(90deg, #020610 0%, #0a1628 60%, transparent 100%);
+            clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
+        }
+        .a-pillar-right {
+            position: absolute; top: 0; right: 0; width: 18%; height: 100%;
+            background: linear-gradient(270deg, #020610 0%, #0a1628 60%, transparent 100%);
+            clip-path: polygon(100% 0, 0 0, 40% 100%, 100% 100%);
+        }
+        .rearview-area {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 25%; height: 15%; background: linear-gradient(180deg, #020610 0%, transparent 100%);
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.8rem !important; }
+            .steering-wheel-container { width: 350px; height: 350px; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <!-- Top Bar -->
+    <div class="bg-navy-950 text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1">
+                    <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
+                    DISPONIBLE 24/7
+                </span>
+                <span class="hidden md:inline">•</span>
+                <span class="hidden md:inline">ENGLISH SPOKEN</span>
+                <span class="hidden md:inline">•</span>
+                <span class="hidden md:inline">LICENCIA M.T.T. #14457</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="text-gray-400 hover:text-white transition">ES</button>
+                <span class="text-gray-600">|</span>
+                <button class="text-white font-medium">EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full damasco-gradient flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-lg font-display">ST</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-navy-950 tracking-tight font-display">ST TRANSAE</h1>
+                        <p class="text-xs text-gray-500 -mt-1">Private Transport & Chauffeur Chile</p>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#servicios" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">SERVICIOS</a>
+                    <a href="#vehiculo" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">VEHÍCULO</a>
+                    <a href="#info" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">INFO VIAJERO</a>
+                    <a href="#pagos" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">PAGOS</a>
+                    <a href="#contacto" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">CONTACTO</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="#cotizar" class="hidden md:inline-flex btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold">RESERVAR</a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#servicios" class="block text-gray-700 py-2">SERVICIOS</a>
+                <a href="#vehiculo" class="block text-gray-700 py-2">VEHÍCULO</a>
+                <a href="#info" class="block text-gray-700 py-2">INFO VIAJERO</a>
+                <a href="#pagos" class="block text-gray-700 py-2">PAGOS</a>
+                <a href="#contacto" class="block text-gray-700 py-2">CONTACTO</a>
+                <a href="#cotizar" class="block btn-primary text-white text-center py-3 rounded-full font-semibold mt-4">RESERVAR AHORA</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="hero-driver-bg" id="parallaxBg">
+            <div class="bokeh-layer" id="bokehFar">
+                <div class="bokeh bokeh-soft" style="width:180px;height:180px;background:#fef3c7;top:15%;left:20%;"></div>
+                <div class="bokeh bokeh-soft" style="width:140px;height:140px;background:#fbbf24;top:25%;left:45%;"></div>
+                <div class="bokeh bokeh-soft" style="width:160px;height:160px;background:#fde68a;top:10%;left:65%;"></div>
+                <div class="bokeh bokeh-soft" style="width:120px;height:120px;background:#fef3c7;top:30%;left:80%;"></div>
+                <div class="bokeh bokeh-soft" style="width:200px;height:200px;background:#fbbf24;top:20%;left:5%;"></div>
+                <div class="bokeh bokeh-soft" style="width:100px;height:100px;background:#fde68a;top:35%;left:35%;"></div>
+                <div class="bokeh bokeh-soft" style="width:130px;height:130px;background:#fef3c7;top:18%;left:55%;"></div>
+                <div class="bokeh bokeh-soft" style="width:150px;height:150px;background:#fbbf24;top:28%;left:72%;"></div>
+            </div>
+            <div class="bokeh-layer" id="bokehMid">
+                <div class="bokeh" style="width:40px;height:40px;background:#fef3c7;top:20%;left:25%;box-shadow:0 0 30px 10px rgba(254,243,199,0.7);"></div>
+                <div class="bokeh" style="width:35px;height:35px;background:#fbbf24;top:28%;left:42%;box-shadow:0 0 25px 8px rgba(251,191,36,0.7);"></div>
+                <div class="bokeh" style="width:45px;height:45px;background:#fef3c7;top:15%;left:58%;box-shadow:0 0 35px 12px rgba(254,243,199,0.7);"></div>
+                <div class="bokeh" style="width:30px;height:30px;background:#fde68a;top:32%;left:75%;box-shadow:0 0 20px 6px rgba(253,230,138,0.7);"></div>
+                <div class="bokeh" style="width:38px;height:38px;background:#fef3c7;top:22%;left:15%;box-shadow:0 0 28px 9px rgba(254,243,199,0.7);"></div>
+                <div class="bokeh" style="width:42px;height:42px;background:#fbbf24;top:26%;left:50%;box-shadow:0 0 32px 11px rgba(251,191,36,0.7);"></div>
+                <div class="bokeh" style="width:36px;height:36px;background:#fef3c7;top:18%;left:68%;box-shadow:0 0 26px 8px rgba(254,243,199,0.7);"></div>
+                <div class="bokeh" style="width:28px;height:28px;background:#fde68a;top:35%;left:30%;box-shadow:0 0 18px 5px rgba(253,230,138,0.7);"></div>
+                <div class="bokeh" style="width:25px;height:25px;background:#ef4444;top:30%;left:85%;box-shadow:0 0 20px 6px rgba(239,68,68,0.6);"></div>
+                <div class="bokeh" style="width:22px;height:22px;background:#dc2626;top:33%;left:88%;box-shadow:0 0 18px 5px rgba(220,38,38,0.6);"></div>
+                <div class="bokeh" style="width:30px;height:30px;background:#ffffff;top:38%;left:12%;box-shadow:0 0 25px 8px rgba(255,255,255,0.5);"></div>
+                <div class="bokeh" style="width:28px;height:28px;background:#f0f9ff;top:40%;left:8%;box-shadow:0 0 22px 7px rgba(240,249,255,0.5);"></div>
+            </div>
+            <div class="bokeh-layer">
+                <div class="street-light" style="top:12%;left:22%;"></div>
+                <div class="street-light" style="top:18%;left:48%;"></div>
+                <div class="street-light" style="top:14%;left:62%;"></div>
+                <div class="street-light" style="top:20%;left:78%;"></div>
+                <div class="street-light" style="top:16%;left:35%;"></div>
+                <div class="street-light" style="top:22%;left:90%;"></div>
+            </div>
+            <div class="windshield-frame">
+                <div class="a-pillar-left"></div>
+                <div class="a-pillar-right"></div>
+                <div class="rearview-area"></div>
+            </div>
+            <svg class="steering-wheel-container" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="170" stroke="#1a1a1a" stroke-width="28" fill="none"/>
+                <circle cx="200" cy="200" r="170" stroke="#2d2d2d" stroke-width="24" fill="none"/>
+                <circle cx="200" cy="200" r="170" stroke="#1a1a1a" stroke-width="20" fill="none"/>
+                <circle cx="200" cy="200" r="145" stroke="#0f0f0f" stroke-width="4" fill="none" opacity="0.5"/>
+                <circle cx="200" cy="200" r="55" fill="#1a1a1a"/>
+                <circle cx="200" cy="200" r="50" fill="#2d2d2d"/>
+                <circle cx="200" cy="200" r="45" fill="#1a1a1a"/>
+                <circle cx="200" cy="200" r="25" fill="#0a1628"/>
+                <circle cx="200" cy="200" r="23" fill="none" stroke="#c0c0c0" stroke-width="1"/>
+                <path d="M200 177 A23 23 0 0 1 223 200 L200 200 Z" fill="#3b82f6"/>
+                <path d="M223 200 A23 23 0 0 1 200 223 L200 200 Z" fill="#ffffff"/>
+                <path d="M200 223 A23 23 0 0 1 177 200 L200 200 Z" fill="#3b82f6"/>
+                <path d="M177 200 A23 23 0 0 1 200 177 L200 200 Z" fill="#ffffff"/>
+                <circle cx="200" cy="200" r="23" fill="none" stroke="#c0c0c0" stroke-width="1.5"/>
+                <path d="M200 145 L200 50" stroke="#1a1a1a" stroke-width="22" stroke-linecap="round"/>
+                <path d="M200 145 L200 50" stroke="#2d2d2d" stroke-width="18" stroke-linecap="round"/>
+                <path d="M155 220 L75 280" stroke="#1a1a1a" stroke-width="22" stroke-linecap="round"/>
+                <path d="M155 220 L75 280" stroke="#2d2d2d" stroke-width="18" stroke-linecap="round"/>
+                <path d="M245 220 L325 280" stroke="#1a1a1a" stroke-width="22" stroke-linecap="round"/>
+                <path d="M245 220 L325 280" stroke="#2d2d2d" stroke-width="18" stroke-linecap="round"/>
+                <circle cx="200" cy="30" r="12" fill="#0f0f0f"/>
+                <circle cx="75" cy="280" r="12" fill="#0f0f0f"/>
+                <circle cx="325" cy="280" r="12" fill="#0f0f0f"/>
+            </svg>
+            <svg class="driver-hands" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMax slice" fill="none">
+                <path d="M0 500 L0 350 Q50 320 120 310 L200 300 Q250 295 280 280 L320 260 Q340 250 350 240 L380 220 Q390 215 395 210 L400 200 Q405 195 410 195 L420 200 Q425 210 420 220 L410 240 Q400 260 380 280 L340 310 Q300 330 250 340 L150 360 Q80 370 0 380 Z" fill="#1a1a1a"/>
+                <path d="M380 220 Q390 200 410 190 Q430 185 450 190 Q470 200 480 220 Q490 240 485 260 Q480 275 470 285 Q460 290 450 285 Q440 275 435 260 Q430 245 425 235 Q420 230 415 232 Q410 240 405 250 Q400 260 395 265 Q385 270 380 260 Q375 245 378 230 Z" fill="#d4a574"/>
+                <path d="M450 190 Q460 180 470 175 Q480 175 485 185 Q488 195 485 205 Q480 210 475 208 Q470 200 465 195 Z" fill="#c9956a"/>
+                <path d="M465 185 Q475 178 482 178 Q488 182 488 192 Q486 200 480 202 Q474 200 470 193 Z" fill="#c9956a"/>
+                <path d="M1200 500 L1200 350 Q1150 320 1080 310 L1000 300 Q950 295 920 280 L880 260 Q860 250 850 240 L820 220 Q810 215 805 210 L800 200 Q795 195 790 195 L780 200 Q775 210 780 220 L790 240 Q800 260 820 280 L860 310 Q900 330 950 340 L1050 360 Q1120 370 1200 380 Z" fill="#1a1a1a"/>
+                <path d="M820 220 Q810 200 790 190 Q770 185 750 190 Q730 200 720 220 Q710 240 715 260 Q720 275 730 285 Q740 290 750 285 Q760 275 765 260 Q770 245 775 235 Q780 230 785 232 Q790 240 795 250 Q800 260 805 265 Q815 270 820 260 Q825 245 822 230 Z" fill="#d4a574"/>
+                <path d="M750 190 Q740 180 730 175 Q720 175 715 185 Q712 195 715 205 Q720 210 725 208 Q730 200 735 195 Z" fill="#c9956a"/>
+                <path d="M735 185 Q725 178 718 178 Q712 182 712 192 Q714 200 720 202 Q726 200 730 193 Z" fill="#c9956a"/>
+                <path d="M280 280 L320 260 L325 270 L285 290 Z" fill="#f5f5f5"/>
+                <path d="M920 280 L880 260 L875 270 L915 290 Z" fill="#f5f5f5"/>
+            </svg>
+            <div class="dashboard-silhouette"></div>
+            <svg class="absolute bottom-0 left-0 right-0 h-32 w-full" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMax slice" fill="none">
+                <rect x="450" y="80" width="300" height="70" rx="8" fill="#0a0a0a" opacity="0.9"/>
+                <rect x="200" y="90" width="120" height="40" rx="4" fill="#1a1a1a" opacity="0.8"/>
+                <rect x="880" y="90" width="120" height="40" rx="4" fill="#1a1a1a" opacity="0.8"/>
+                <line x1="210" y1="100" x2="310" y2="100" stroke="#0a0a0a" stroke-width="2"/>
+                <line x1="210" y1="110" x2="310" y2="110" stroke="#0a0a0a" stroke-width="2"/>
+                <line x1="210" y1="120" x2="310" y2="120" stroke="#0a0a0a" stroke-width="2"/>
+                <line x1="890" y1="100" x2="990" y2="100" stroke="#0a0a0a" stroke-width="2"/>
+                <line x1="890" y1="110" x2="990" y2="110" stroke="#0a0a0a" stroke-width="2"/>
+                <line x1="890" y1="120" x2="990" y2="120" stroke="#0a0a0a" stroke-width="2"/>
+                <rect x="500" y="90" width="200" height="50" rx="4" fill="#1e3a5f" opacity="0.3"/>
+            </svg>
+            <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);"></div>
+        </div>
+
+        <div class="absolute inset-0 bg-gradient-to-r from-navy-950/85 via-navy-950/60 to-navy-950/30 z-[1]"></div>
+
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <div class="mb-4">
+                        <span class="font-display text-2xl md:text-3xl text-damasco-600 tracking-wider">ST TRANSAE CHILE</span>
+                    </div>
+
+                    <h1 class="hero-title font-display text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6">
+                        TRANSPORTE PRIVADO<br>
+                        <span class="text-gradient">EJECUTIVO</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
+                        Traslados en confianza y absoluta discreción en Santiago de Chile y principales destinos vitivinícolas, cordillera y costa central.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <a href="https://wa.me/56989625825" class="btn-damasco px-8 py-3.5 rounded-full font-semibold flex items-center gap-2 text-sm uppercase tracking-wide">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            COTIZAR VÍA WHATSAPP
+                        </a>
+                        <a href="#cotizar" class="btn-outline-white px-8 py-3.5 rounded-full font-semibold text-sm uppercase tracking-wide">
+                            RESERVAR
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4 max-w-lg">
+                        <div class="indicator-card glass-card rounded-2xl p-4 text-center">
+                            <div class="font-display text-4xl text-white mb-1">100%</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider">Puntualidad</div>
+                        </div>
+                        <div class="indicator-card glass-card rounded-2xl p-4 text-center">
+                            <div class="font-display text-4xl text-white mb-1">5 PAX</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider">Capacidad</div>
+                        </div>
+                        <div class="indicator-card glass-card rounded-2xl p-4 text-center">
+                            <div class="font-display text-4xl text-white mb-1">24/7</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider">Atención</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="cotizar" class="animate-slide-up relative">
+                    <div class="absolute -top-4 right-4 md:-top-6 md:right-8 z-20">
+                        <div class="bg-navy-950/70 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 flex items-center gap-2 shadow-xl">
+                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <span class="text-white text-sm font-semibold">5.0</span>
+                            <span class="text-gray-300 text-xs">(280+ reseñas)</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-white rounded-3xl shadow-2xl p-8 max-w-md ml-auto">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full damasco-gradient flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900">Cotiza Tu Itinerario</h2>
+                        </div>
+
+                        <form class="space-y-4" onsubmit="handleQuote(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Traslado</label>
+                                <select class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                    <option>Traslado SCL → Destino</option>
+                                    <option>Destino → Aeropuerto SCL</option>
+                                    <option>Tour Vitivinícola</option>
+                                    <option>Tour Cordillera / Ski</option>
+                                    <option>Evento Especial</option>
+                                    <option>Ruta Costera</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Origen</label>
+                                <input type="text" placeholder="Ej: Aeropuerto SCL" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Destino</label>
+                                <input type="text" placeholder="Ej: Hotel en Las Condes" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Fecha</label>
+                                    <input type="date" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Hora</label>
+                                    <input type="time" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Pasajeros</label>
+                                <select class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                    <option>1 pasajero</option>
+                                    <option>2 pasajeros</option>
+                                    <option>3 pasajeros</option>
+                                    <option>4 pasajeros</option>
+                                    <option>5 pasajeros</option>
+                                </select>
+                            </div>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" checked class="w-4 h-4 text-damasco-800 rounded">
+                                <span class="text-sm text-gray-700">100% Pet Friendly</span>
+                            </label>
+                            <button type="submit" class="w-full btn-damasco py-4 rounded-xl font-semibold flex items-center justify-center gap-2 uppercase tracking-wide">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                CONTINUAR Y COTIZAR VÍA WHATSAPP
+                            </button>
+                            <p class="text-xs text-gray-500 text-center">✓ Tarifa garantizada sin sorpresas · Pagos seguros en línea</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-10">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-2 bg-white/60 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vehicle Specifications -->
+    <section id="vehiculo" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="font-display text-damasco-800 text-xl uppercase tracking-wider">Sedán Ejecutivo ST Transae</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-navy-950 mt-3 mb-6">MÁXIMA COMODIDAD Y<br>SEGURIDAD A BORDO</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Cada trayecto está concebido como una extensión de su oficina o hogar; con un conductor profesional bilingüe entrenado con total discreción y cortesía.</p>
+            </div>
+
+            
+            <!-- ============================================ -->
+            <!-- INICIO: SECCIÓN DE EQUIPAMIENTO Y CONFORT -->
+            <!-- ============================================ -->
+            <div class="scroll-reveal mb-16">
+                <div class="relative max-w-6xl mx-auto bg-white rounded-3xl overflow-hidden shadow-2xl">
+                    <div class="grid lg:grid-cols-2 gap-0">
+                        <!-- Imagen del vehículo -->
+                        <div class="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 p-8 lg:p-16 flex items-center justify-center">
+                            <div class="absolute inset-0 opacity-20 pointer-events-none">
+                                <div class="absolute top-0 left-0 w-64 h-64 bg-damasco-100 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                                <div class="absolute bottom-0 right-0 w-64 h-64 bg-navy-100 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+                            </div>
+                            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-8 bg-black/10 rounded-full blur-xl"></div>
+                            <img 
+                                src="/mercedes-rojo.jpg" 
+                                alt="Mercedes-Benz Clase A Sedán Ejecutivo ST Transae" 
+                                class="relative w-full h-auto object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+                                style="max-height: 420px;"
+                            />
+                        </div>
+                        
+                        <!-- Contenido de características -->
+                        <div class="p-8 lg:p-16 flex flex-col justify-center bg-white">
+                            <div class="mb-2">
+                                <span class="text-damasco-800 font-display text-sm uppercase tracking-[0.2em] font-semibold">Experiencia de Primera Clase</span>
+                                <div class="w-12 h-1 bg-damasco-800 mt-3 rounded-full"></div>
+                            </div>
+                            
+                            <h3 class="font-display text-4xl md:text-5xl font-bold text-navy-950 mt-4 mb-10 leading-tight">
+                                Equipamiento y confort<br>de primera clase
+                            </h3>
+                            
+                            <div class="space-y-8">
+                                <!-- Feature 1 -->
+                                <div class="flex items-start gap-5 group">
+                                    <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center group-hover:bg-damasco-800 transition-colors duration-300">
+                                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display text-xl font-bold text-navy-950 mb-1">Confort para 4–5 Pasajeros</h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed">Asientos de cuero ergonómicos y amplio espacio.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Feature 2 -->
+                                <div class="flex items-start gap-5 group">
+                                    <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center group-hover:bg-damasco-800 transition-colors duration-300">
+                                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display text-xl font-bold text-navy-950 mb-1">Equipaje seguro &amp; sanitizado</h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed">Capacidad para 4 maletas de 23 kg con desinfección diaria.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Feature 3 -->
+                                <div class="flex items-start gap-5 group">
+                                    <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center group-hover:bg-damasco-800 transition-colors duration-300">
+                                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display text-xl font-bold text-navy-950 mb-1">WiFi 5G &amp; Conectividad 24/7</h4>
+                                        <p class="text-gray-600 text-sm leading-relaxed">Cargadores multi-dispositivo y conexión continua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================ -->
+            <!-- FIN: SECCIÓN DE EQUIPAMIENTO Y CONFORT -->
+            <!-- ============================================ -->
+            
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 scroll-reveal">
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">5 PAX</div>
+                    <p class="text-gray-600 text-sm">Asientos ergonómicos y amplio maletero</p>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">5G WIFI</div>
+                    <p class="text-gray-600 text-sm">Internet satelital de alta velocidad gratuito</p>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">100%</div>
+                    <p class="text-gray-600 text-sm">Póliza de responsabilidad civil total</p>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">FREE</div>
+                    <p class="text-gray-600 text-sm">Agua mineral, toallitas & snacks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12 scroll-reveal">
+                <span class="font-display text-damasco-800 text-xl uppercase tracking-wider">Servicios de Traslado Personalizado</span>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-navy-950 mt-3 mb-6">SOLUCIONES A TU MEDIDA</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Soluciones adaptadas a la exigencia de negocios, familias exigentes y artistas que buscan tranquilidad y eficiencia en sus conexiones.</p>
+            </div>
+
+            <div class="flex justify-center gap-3 mb-12 flex-wrap scroll-reveal">
+                <button class="filter-btn active px-6 py-2 rounded-full text-sm font-semibold bg-damasco-800 text-white font-display tracking-wider" onclick="filterServices('all', this)">TODOS</button>
+                <button class="filter-btn px-6 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition font-display tracking-wider" onclick="filterServices('airport', this)">AEROPUERTO</button>
+                <button class="filter-btn px-6 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition font-display tracking-wider" onclick="filterServices('tour', this)">TOURS & NIEVE</button>
+                <button class="filter-btn px-6 py-2 rounded-full text-sm font-semibold bg-gray-100 text-gray-700 hover:bg-gray-200 transition font-display tracking-wider" onclick="filterServices('event', this)">EVENTOS</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGrid">
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg group" data-category="airport">
+                    <div class="w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center mb-6 group-hover:bg-damasco-800 transition-colors">
+                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-navy-950 mb-3 tracking-wide">TRASLADO AEROPUERTO SCL</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Monitoreo permanente aéreo con puntualidad garantizada. Espera con cartel en puerta de sala internacional, choferes bilingües y amenidades de cortesía.</p>
+                    <a href="#" class="text-damasco-800 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Más información <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg group" data-category="tour">
+                    <div class="w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center mb-6 group-hover:bg-damasco-800 transition-colors">
+                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-navy-950 mb-3 tracking-wide">HOTELES & RESIDENCIAS</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Conexiones exclusivas a hoteles de Las Condes, Vitacura, Providencia, La Dehesa y Santiago Centro. Traslados hacia puertas de diseño con tarifas fijas.</p>
+                    <a href="#" class="text-damasco-800 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Más información <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg group" data-category="tour">
+                    <div class="w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center mb-6 group-hover:bg-damasco-800 transition-colors">
+                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-navy-950 mb-3 tracking-wide">TOURS VALLES VITIVINÍCOLAS</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Rutas exclusivas por viñedos de Casablanca, Valle del Maipo, Colchagua, Concha y Toro. Unidades a disposición durante el día según itinerario.</p>
+                    <a href="#" class="text-damasco-800 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Más información <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg group" data-category="tour">
+                    <div class="w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center mb-6 group-hover:bg-damasco-800 transition-colors">
+                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-navy-950 mb-3 tracking-wide">CENTROS DE SKI CORDILLERA</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Rutas seguras hacia Farellones, La Parva y Portillo. Vehículo con equipamiento de montaña, cadenas certificadas y conductores capacitados.</p>
+                    <a href="#" class="text-damasco-800 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Más información <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg group" data-category="event">
+                    <div class="w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center mb-6 group-hover:bg-damasco-800 transition-colors">
+                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-navy-950 mb-3 tracking-wide">BODAS, RECITALES & GALA</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Asistencia garantizada a eventos masivos en Macro Zona. Conducción de alta prominencia y alta demanda de traslados para ocasiones especiales.</p>
+                    <a href="#" class="text-damasco-800 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Más información <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg group" data-category="tour">
+                    <div class="w-14 h-14 rounded-xl bg-damasco-50 flex items-center justify-center mb-6 group-hover:bg-damasco-800 transition-colors">
+                        <svg class="w-7 h-7 text-damasco-800 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+                    </div>
+                    <h3 class="font-display text-2xl text-navy-950 mb-3 tracking-wide">VALPARAÍSO, VIÑA & FAENAS</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Viajes ejecutivos hacia Valparaíso patrimonial, Viña del Mar, San Antonio. Derroteros por zonas industriales y factorías de gran flujo comercial.</p>
+                    <a href="#" class="text-damasco-800 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Más información <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="info" class="dashboard-bg py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 scroll-reveal">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-4">
+                    <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
+                    <span class="text-white text-sm font-medium live-indicator font-display tracking-wider">EN VIVO</span>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl font-bold text-white mb-4 tracking-wide">DASHBOARD EN VIVO DEL VIAJERO</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Información útil en tiempo real para tu viaje en Chile</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 scroll-reveal">
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="font-display text-xl text-white mb-4 flex items-center gap-2 tracking-wider">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        DIVISAS
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">USD</span><span class="font-display text-xl text-white">$967.20</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">EUR</span><span class="font-display text-xl text-white">$1,045.20</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">BRL</span><span class="font-display text-xl text-white">$168.40</span></div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="font-display text-xl text-white mb-4 flex items-center gap-2 tracking-wider">
+                        <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        CLIMA POR ZONAS
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Santiago SCL</span><span class="font-display text-xl text-white">24°C</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Farellones / Ski</span><span class="font-display text-xl text-white">7°C</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Valparaíso / Costa</span><span class="font-display text-xl text-white">19°C</span></div>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="font-display text-xl text-white mb-4 flex items-center gap-2 tracking-wider">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        HORA OFICIAL SCL
+                    </h3>
+                    <div class="text-center py-4">
+                        <div class="font-display text-6xl text-white font-mono mb-2 tracking-wider" id="liveTime">18:44:29</div>
+                        <div class="text-gray-400 text-sm">UTC -3 · Santiago, Chile</div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-damasco-800 to-damasco-900 rounded-2xl p-6 border border-damasco-700">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center"><span class="text-damasco-800 font-bold text-xs font-display">SERNATUR</span></div>
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-2 tracking-wider">REGISTRO NACIONAL</h3>
+                    <p class="text-white/80 text-sm mb-3">Certificado de prestador de turismo sustentable</p>
+                    <div class="bg-white/20 rounded-lg px-3 py-2"><span class="text-white text-xs font-mono">Registro activo y verificado ✓</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Driver & Payments -->
+    <section id="pagos" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="scroll-reveal">
+                    <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+                        <div class="flex items-start gap-6 mb-6">
+                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-navy-800 to-navy-950 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                            </div>
+                            <div>
+                                <span class="font-display text-damasco-800 text-sm uppercase tracking-wider">Conductor Titular</span>
+                                <h3 class="font-display text-3xl text-navy-950 mt-1 tracking-wide">SERGIO ASTUDILLO C.</h3>
+                                <p class="text-gray-600 text-sm">Conductor Profesional Bilingüe</p>
+                                <div class="flex items-center gap-1 mt-2"><span class="text-yellow-400">★★★★★</span><span class="text-gray-500 text-xs ml-1">5.0 · 280+ viajes</span></div>
+                            </div>
+                        </div>
+                        <blockquote class="border-l-4 border-damasco-800 pl-4 mb-6 italic text-gray-700">"Nos comprometemos con cada pasajero en brindarle una experiencia impecable, puntual y segura. Su tranquilidad es nuestra prioridad."</blockquote>
+                        <div class="space-y-3">
+                            <a href="mailto:sergioastud@gmail.com" class="flex items-center gap-3 text-gray-700 hover:text-damasco-800 transition"><svg class="w-5 h-5 text-damasco-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span class="text-sm">sergioastud@gmail.com</span></a>
+                            <a href="tel:+56989625825" class="flex items-center gap-3 text-gray-700 hover:text-damasco-800 transition"><svg class="w-5 h-5 text-damasco-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="text-sm">+56 9 8962 5825</span></a>
+                            <div class="flex items-center gap-3 text-gray-700"><svg class="w-5 h-5 text-damasco-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="text-sm">English Spoken · Español</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-reveal">
+                    <span class="font-display text-damasco-800 text-xl uppercase tracking-wider">Métodos de Pago</span>
+                    <h2 class="font-display text-5xl font-bold text-navy-950 mt-3 mb-6 tracking-wide">MÉTODOS DE PAGO<br>TRANSPARENTES A BORDO</h2>
+                    <p class="text-gray-600 mb-8">Aceptamos tarjetas nacionales e internacionales, Redcompra a bordo, WebPay Plus, transferencias bancarias y pago en línea inmediato.</p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                        <div class="payment-icon bg-white rounded-xl p-4 border border-gray-100 shadow-md flex items-center justify-center h-20"><div class="text-center"><div class="font-display text-2xl text-blue-600 tracking-wider">VISA</div></div></div>
+                        <div class="payment-icon bg-white rounded-xl p-4 border border-gray-100 shadow-md flex items-center justify-center h-20"><div class="text-center"><div class="font-display text-2xl text-red-500 tracking-wider">MC</div><div class="text-xs text-gray-600">Mastercard</div></div></div>
+                        <div class="payment-icon bg-white rounded-xl p-4 border border-gray-100 shadow-md flex items-center justify-center h-20"><div class="text-center"><div class="font-display text-2xl text-amber-600 tracking-wider">AMEX</div></div></div>
+                        <div class="payment-icon bg-white rounded-xl p-4 border border-gray-100 shadow-md flex items-center justify-center h-20"><div class="text-center"><div class="font-display text-lg text-navy-900 tracking-wider">WEBPAY</div><div class="text-xs text-gray-600">Plus</div></div></div>
+                        <div class="payment-icon bg-white rounded-xl p-4 border border-gray-100 shadow-md flex items-center justify-center h-20"><div class="text-center"><div class="font-display text-lg text-green-600 tracking-wider">REDCOMPRA</div></div></div>
+                        <div class="payment-icon bg-white rounded-xl p-4 border border-gray-100 shadow-md flex items-center justify-center h-20"><div class="text-center"><div class="font-display text-lg text-navy-900 tracking-wider">TRANSFER.</div><div class="text-xs text-gray-600">Bancaria</div></div></div>
+                    </div>
+                    <div class="flex items-center gap-3 bg-green-50 border border-green-200 rounded-xl p-4">
+                        <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <div><div class="text-sm font-semibold text-green-800">Pago 100% Seguro</div><div class="text-xs text-green-700">Encriptación SSL · Datos protegidos</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="navy-gradient py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-damasco-800 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-damasco-800 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10 scroll-reveal">
+            <h2 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-wide">RESERVA TU VEHÍCULO<br>EJECUTIVO HOY</h2>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-3xl mx-auto">Garantizamos puntualidad, tarifas sin sorpresas de última hora, plan de seguridad para Santiago y atención personalizada de principio a fin.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/56989625825" class="whatsapp-btn text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 text-lg">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    WHATSAPP DIRECTO
+                </a>
+                <a href="tel:+56989625825" class="btn-outline-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 text-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    LLAMAR DIRECTO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full damasco-gradient flex items-center justify-center"><span class="text-white font-bold text-lg font-display">ST</span></div>
+                        <div><h3 class="font-display text-2xl tracking-wide">ST TRANSAE</h3><p class="text-xs text-gray-400">Private Transport & Chauffeur Chile</p></div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Empresa de transporte privado y chóferes ejecutivos en Santiago de Chile. Servicio premium con estándares internacionales.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-damasco-400 tracking-wider">CANALES DIRECTOS</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="tel:+56989625825" class="hover:text-white transition">+56 9 8962 5825</a></li>
+                        <li><a href="mailto:sergioastud@gmail.com" class="hover:text-white transition">sergioastud@gmail.com</a></li>
+                        <li>Santiago Metropolitano</li>
+                        <li>Vitacura, Chile</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-damasco-400 tracking-wider">SEGURIDAD & PAGOS</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Licencia M.T.T. #14457</li>
+                        <li>Seguro de pasajeros 100%</li>
+                        <li>Registro SERNATUR activo</li>
+                        <li>Visa · Mastercard · WebPay · Amex</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-damasco-400 tracking-wider">CERTIFICACIONES</h4>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-8 h-8 bg-white rounded flex items-center justify-center"><span class="text-damasco-800 font-bold text-xs font-display">S</span></div>
+                            <span class="font-display text-sm tracking-wider">SERNATUR</span>
+                        </div>
+                        <p class="text-xs text-gray-400">Registro Nacional de Prestadores de Turismo Sustentable - Gobierno de Chile</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 ST TRANSAE Chile. Todos los derechos reservados.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition">Términos & Condiciones</a>
+                    <a href="#" class="hover:text-white transition">Privacidad</a>
+                    <a href="#" class="hover:text-white transition">Soporte</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/56989625825" class="fixed bottom-6 right-6 z-50 whatsapp-btn w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <script>
+        const parallaxBg = document.getElementById('parallaxBg');
+        let ticking = false;
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * 0.4;
+            if (parallaxBg) parallaxBg.style.transform = `translateY(${rate}px) scale(1.05)`;
+            ticking = false;
+        }
+        window.addEventListener('scroll', function() {
+            if (!ticking) { window.requestAnimationFrame(updateParallax); ticking = true; }
+        });
+
+        const heroSection = document.querySelector('.hero-driver-bg');
+        if (heroSection) {
+            heroSection.addEventListener('mousemove', function(e) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                const far = document.getElementById('bokehFar');
+                const mid = document.getElementById('bokehMid');
+                if (far) far.style.transform = `translate(${x * 0.5}px, ${y * 0.5}px)`;
+                if (mid) mid.style.transform = `translate(${x * 1}px, ${y * 1}px)`;
+            });
+        }
+
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+
+        function handleQuote(e) {
+            e.preventDefault();
+            const form = e.target;
+            const tipo = form.querySelector('select').value;
+            const inputs = form.querySelectorAll('input');
+            const selects = form.querySelectorAll('select');
+            const message = `Hola ST TRANSAE! Quiero cotizar:%0A%0A Tipo: ${tipo}%0A📍 Origen: ${inputs[0].value}%0A🎯 Destino: ${inputs[1].value}%0A Fecha: ${inputs[2].value}%0A⏰ Hora: ${inputs[3].value}%0A👥 Pasajeros: ${selects[1].value}`;
+            window.open(`https://wa.me/56989625825?text=${message}`, '_blank');
+        }
+
+        function filterServices(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-damasco-800', 'text-white');
+                b.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            btn.classList.remove('bg-gray-100', 'text-gray-700');
+            btn.classList.add('bg-damasco-800', 'text-white');
+            const cards = document.querySelectorAll('#servicesGrid .service-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-out';
+                } else { card.style.display = 'none'; }
+            });
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const santiagoTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Santiago' }));
+            const h = String(santiagoTime.getHours()).padStart(2, '0');
+            const m = String(santiagoTime.getMinutes()).padStart(2, '0');
+            const s = String(santiagoTime.getSeconds()).padStart(2, '0');
+            document.getElementById('liveTime').textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateClock, 1000); updateClock();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+
+</html>
