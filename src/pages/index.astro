@@ -215,47 +215,49 @@ import Button from '../components/Button.astro';
         </div>
     </div>
 
-<!-- Header CORREGIDO (Fondo oscuro, texto claro) -->
-<header class="sticky top-0 z-50 bg-navy-950/95 backdrop-blur-md border-b border-white/10 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-4">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full damasco-gradient flex items-center justify-center shadow-lg">
-                    <span class="text-white font-bold text-lg font-display">ST</span>
+
+
+ <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full damasco-gradient flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-lg font-display">ST</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-navy-950 tracking-tight font-display">ST TRANSAE</h1>
+                        <p class="text-xs text-gray-500 -mt-1">Private Transport & Chauffeur Chile</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold text-white tracking-tight font-display">ST TRANSAE</h1>
-                    <p class="text-xs text-gray-400 -mt-1">Private Transport & Chauffeur Chile</p>
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#servicios" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">SERVICIOS</a>
+                    <a href="#vehiculo" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">VEHÍCULO</a>
+                    <a href="#info" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">INFO VIAJERO</a>
+                    <a href="#pagos" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">PAGOS</a>
+                    <a href="#contacto" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">CONTACTO</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="#cotizar" class="hidden md:inline-flex btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold">RESERVAR</a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
                 </div>
             </div>
-            <nav class="hidden lg:flex items-center gap-8">
-                <a href="#servicios" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">SERVICIOS</a>
-                <a href="#vehiculo" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">VEHÍCULO</a>
-                <a href="#info" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">INFO VIAJERO</a>
-                <a href="#pagos" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">PAGOS</a>
-                <a href="#contacto" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition">CONTACTO</a>
-            </nav>
-            <div class="flex items-center gap-4">
-                <a href="#cotizar" class="hidden md:inline-flex btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold">RESERVAR</a>
-                <!-- Botón hamburguesa con color blanco para que se vea sobre fondo oscuro -->
-                <button class="lg:hidden text-white" onclick="toggleMenu()">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </button>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#servicios" class="block text-gray-700 py-2">SERVICIOS</a>
+                <a href="#vehiculo" class="block text-gray-700 py-2">VEHÍCULO</a>
+                <a href="#info" class="block text-gray-700 py-2">INFO VIAJERO</a>
+                <a href="#pagos" class="block text-gray-700 py-2">PAGOS</a>
+                <a href="#contacto" class="block text-gray-700 py-2">CONTACTO</a>
+                <a href="#cotizar" class="block btn-primary text-white text-center py-3 rounded-full font-semibold mt-4">RESERVAR AHORA</a>
             </div>
         </div>
-    </div>
-    <!-- Menú móvil corregido con fondo oscuro -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-navy-950 border-t border-white/10">
-        <div class="px-4 py-4 space-y-3">
-            <a href="#servicios" class="block text-gray-300 hover:text-white py-2">SERVICIOS</a>
-            <a href="#vehiculo" class="block text-gray-300 hover:text-white py-2">VEHÍCULO</a>
-            <a href="#info" class="block text-gray-300 hover:text-white py-2">INFO VIAJERO</a>
-            <a href="#pagos" class="block text-gray-300 hover:text-white py-2">PAGOS</a>
-            <a href="#contacto" class="block text-gray-300 hover:text-white py-2">CONTACTO</a>
-            <a href="#cotizar" class="block btn-primary text-white text-center py-3 rounded-full font-semibold mt-4">RESERVAR AHORA</a>
-        </div>
-    </div>
-</header>
+    </header>
+
+
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center overflow-hidden">
