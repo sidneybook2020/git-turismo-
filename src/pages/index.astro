@@ -698,10 +698,11 @@ import Button from '../components/Button.astro';
                         <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         HORA OFICIAL SCL
                     </h3>
-                    <div class="text-center py-4">
-                        <div class="font-display text-6xl text-white font-mono mb-2 tracking-wider" id="liveTime">18:44:29</div>
-                        <div class="text-gray-400 text-sm">UTC -3 · Santiago, Chile</div>
-                    </div>
+                    <div class="text-center py-2 md:py-4">
+    					<!-- CAMBIO: text-4xl para tablet, text-5xl para md, text-6xl solo en pantallas grandes -->
+   	 					<div class="font-display text-4xl sm:text-5xl lg:text-6xl text-white font-mono mb-2 tracking-wider break-words" id="liveTime">18:44:29</div>
+    					<div class="text-gray-400 text-xs md:text-sm">UTC -3 · Santiago, Chile</div>
+					</div>
                 </div>
                 <div class="bg-gradient-to-br from-damasco-800 to-damasco-900 rounded-2xl p-6 border border-damasco-700">
                     <div class="flex items-center gap-2 mb-3">
