@@ -1,1 +1,200 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colores Damasco */
+  --color-damasco-50: #fdf2f2;
+  --color-damasco-100: #fce5e5;
+  --color-damasco-200: #f9c8c8;
+  --color-damasco-300: #f49d9d;
+  --color-damasco-400: #ec6d6d;
+  --color-damasco-500: #e04545;
+  --color-damasco-600: #c92a2a;
+  --color-damasco-700: #a82020;
+  --color-damasco-800: #8B1A1A;
+  --color-damasco-900: #6b1515;
+
+  /* Colores Navy */
+  --color-navy-50: #f0f4f8;
+  --color-navy-100: #d9e2ec;
+  --color-navy-200: #bcccdc;
+  --color-navy-300: #9fb3c8;
+  --color-navy-400: #829ab1;
+  --color-navy-500: #627d98;
+  --color-navy-600: #486581;
+  --color-navy-700: #334e68;
+  --color-navy-800: #243b53;
+  --color-navy-900: #102a43;
+  --color-navy-950: #0a1628;
+
+  /* Fuentes (Inter se carga como 'sans' por defecto) */
+  --font-family-sans: 'Inter', sans-serif;
+
+  /* Animaciones personalizadas (sintaxis v4) */
+  --animate-fade-in: fadeIn 0.8s ease-out;
+  --animate-slide-up: slideUp 0.8s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+/* Keyframes para las animaciones personalizadas */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ⚡ SOLUCIÓN AL PROBLEMA DE font-display con @utility (exclusivo de v4) */
+@utility font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* ========== RESTO DE TU CSS EXISTENTE (sin cambios) ========== */
+* { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; }
+
+/* Hero Background */
+.hero-driver-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-driver-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0a1628 0%, #1a2d4a 30%, #0f1f35 70%, #050d1a 100%);
+}
+.bokeh-layer { position: absolute; inset: 0; overflow: hidden; }
+.bokeh { position: absolute; border-radius: 50%; filter: blur(1px); opacity: 0.85; }
+.bokeh-soft { filter: blur(15px); opacity: 0.5; }
+.street-light {
+  position: absolute; width: 8px; height: 8px; background: #fef3c7; border-radius: 50%;
+  box-shadow: 0 0 20px 8px rgba(254, 243, 199, 0.6), 0 0 40px 15px rgba(254, 243, 199, 0.3);
+}
+.dashboard-silhouette {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+  background: linear-gradient(180deg, transparent 0%, #050d1a 40%, #020610 100%);
+}
+.steering-wheel-container {
+  position: absolute; bottom: -15%; left: 50%; transform: translateX(-50%);
+  width: 550px; height: 550px; opacity: 0.85;
+}
+.driver-hands { position: absolute; bottom: 0; left: 0; right: 0; height: 45%; }
+.parallax-layer { will-change: transform; transition: transform 0.1s linear; }
+
+.glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.glass-white { background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(20px); }
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #d9e2ec 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.damasco-gradient { background: linear-gradient(135deg, #8B1A1A 0%, #c92a2a 100%); }
+.navy-gradient { background: linear-gradient(135deg, #0a1628 0%, #102a43 100%); }
+
+.btn-damasco {
+  background: #8B1A1A;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+}
+.btn-damasco:hover {
+  background: #a82020;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 26, 26, 0.5);
+}
+
+.btn-outline-white {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #8B1A1A 0%, #a82020 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139, 26, 26, 0.5); }
+
+.service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(139, 26, 26, 0.15); }
+.indicator-card { transition: all 0.3s ease; }
+.indicator-card:hover { transform: scale(1.05); }
+.feature-icon {
+  background: linear-gradient(135deg, #8B1A1A 0%, #c92a2a 100%);
+  box-shadow: 0 8px 20px rgba(139, 26, 26, 0.3);
+}
+.scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+.pulse-dot { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.live-indicator::before {
+  content: ''; display: inline-block; width: 8px; height: 8px;
+  background: #10b981; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;
+}
+.dashboard-bg {
+  background: radial-gradient(circle at 10% 20%, rgba(139, 26, 26, 0.1) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(30, 41, 59, 0.2) 0%, transparent 40%),
+              linear-gradient(180deg, #0a1628 0%, #102a43 100%);
+}
+.input-field { transition: all 0.3s ease; border: 1px solid #e2e8f0; }
+.input-field:focus { border-color: #8B1A1A; box-shadow: 0 0 0 3px rgba(139, 26, 26, 0.1); outline: none; }
+.nav-link { position: relative; }
+.nav-link::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: #8B1A1A; transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+.payment-icon { transition: all 0.3s ease; }
+.payment-icon:hover { transform: scale(1.1); }
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+.whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); }
+.section-divider { height: 4px; background: linear-gradient(90deg, transparent 0%, #8B1A1A 50%, transparent 100%); }
+.bmw-car-container {
+  position: relative; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 2rem; overflow: hidden;
+}
+.bmw-car-svg { filter: drop-shadow(0 30px 60px rgba(16, 42, 67, 0.4)); }
+.windshield-frame { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.a-pillar-left {
+  position: absolute; top: 0; left: 0; width: 18%; height: 100%;
+  background: linear-gradient(90deg, #020610 0%, #0a1628 60%, transparent 100%);
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
+}
+.a-pillar-right {
+  position: absolute; top: 0; right: 0; width: 18%; height: 100%;
+  background: linear-gradient(270deg, #020610 0%, #0a1628 60%, transparent 100%);
+  clip-path: polygon(100% 0, 0 0, 40% 100%, 100% 100%);
+}
+.rearview-area {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 25%; height: 15%; background: linear-gradient(180deg, #020610 0%, transparent 100%);
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.8rem !important; }
+  .steering-wheel-container { width: 350px; height: 350px; }
+}
