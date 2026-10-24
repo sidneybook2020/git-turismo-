@@ -18,46 +18,10 @@ import Button from '../components/Button.astro';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        damasco: {
-                            50: '#fdf2f2', 100: '#fce5e5', 200: '#f9c8c8', 300: '#f49d9d',
-                            400: '#ec6d6d', 500: '#e04545', 600: '#c92a2a', 700: '#a82020',
-                            800: '#8B1A1A', 900: '#6b1515',
-                        },
-                        navy: {
-                            50: '#f0f4f8', 100: '#d9e2ec', 200: '#bcccdc', 300: '#9fb3c8',
-                            400: '#829ab1', 500: '#627d98', 600: '#486581', 700: '#334e68',
-                            800: '#243b53', 900: '#102a43', 950: '#0a1628',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Bebas Neue', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'float': 'float 3s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-                        slideUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
+        <style>
         * { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; }
-        .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
-
+        
         /* ===== HERO BACKGROUND - Driver Scene ===== */
         .hero-driver-bg {
             position: absolute;
