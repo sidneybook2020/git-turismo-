@@ -198,3 +198,14 @@ body { font-family: 'Inter', sans-serif; }
   .hero-title { font-size: 2.8rem !important; }
   .steering-wheel-container { width: 350px; height: 350px; }
 }
+
+
+/* Sombras para la sección del conductor */
+.card-shadow {
+  box-shadow: 0 20px 40px -15px rgba(16, 42, 67, 0.15), 0 0 0 1px rgba(16, 42, 67, 0.03);
+}
+
+.form-shadow {
+  box-shadow: 0 25px 50px -12px rgba(16, 42, 67, 0.35);
+}
+
