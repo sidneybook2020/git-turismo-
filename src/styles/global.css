@@ -199,7 +199,6 @@ body { font-family: 'Inter', sans-serif; }
   .steering-wheel-container { width: 350px; height: 350px; }
 }
 
-
 /* Sombras para la sección del conductor */
 .card-shadow {
   box-shadow: 0 20px 40px -15px rgba(16, 42, 67, 0.15), 0 0 0 1px rgba(16, 42, 67, 0.03);
@@ -208,4 +207,30 @@ body { font-family: 'Inter', sans-serif; }
 .form-shadow {
   box-shadow: 0 25px 50px -12px rgba(16, 42, 67, 0.35);
 }
+
+
+/* ============================================================
+   🔴 AGREGAR AL FINAL DEL global.css
+   Clases necesarias para la sección Métodos de Pago
+   ============================================================ */
+
+.warm-glow {
+  background: radial-gradient(ellipse at center, rgba(220, 120, 50, 0.35) 0%, rgba(220, 120, 50, 0.12) 40%, transparent 70%);
+}
+
+.payment-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.payment-card-hover:hover {
+  transform: translateX(6px);
+  box-shadow: 0 10px 30px -10px rgba(201, 42, 42, 0.25);
+}
+
+.floating-badge {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
 
