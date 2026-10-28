@@ -1192,7 +1192,281 @@ import Button from '../components/Button.astro';
 </section>
 <!-- 🔴🔴🔴 FIN SECCIÓN: MÉTODOS DE PAGO 🔴🔴 -->
 
+<!-- ============================================================ -->
+<!-- 🔴🔴 INICIO SECCIÓN: PREGUNTAS FRECUENTES (FAQ) 🔴🔴 -->
+<!-- ============================================================ -->
+<section id="faq" class="py-20 bg-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
+        <!-- Encabezado de la sección -->
+        <div class="text-center mb-16 scroll-reveal">
+            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5 mb-4">
+                <svg class="w-4 h-4 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="font-display text-accent-blue text-sm uppercase tracking-wider">Resolvemos tus dudas</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-6xl font-bold text-navy-950 mt-3 mb-6 tracking-tight">PREGUNTAS FRECUENTES</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Todo lo que necesitas saber para viajar con total tranquilidad, seguridad y confort con ST TRANSAE.</p>
+        </div>
+
+        <!-- Contenedor del Acordeón -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden scroll-reveal">
+
+            <!-- Pregunta 1 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">01</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Qué tipo de servicios de transporte ofrecen?</div>
+                        <div class="faq-subtitle hidden md:block">Transporte privado ejecutivo en Santiago y zonas aledañas</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Ofrecemos transporte privado ejecutivo y servicio de chófer en Santiago de Chile y zonas aledañas. Nuestros servicios incluyen: traslados al/del Aeropuerto SCL, tours a valles vitivinícolas (Casablanca, Maipo, Colchagua), traslados a centros de ski (Farellones, La Parva, Portillo), rutas costeras (Valparaíso, Viña del Mar) y transporte para eventos especiales, bodas o recitales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">02</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿El servicio está disponible las 24 horas?</div>
+                        <div class="faq-subtitle hidden md:block">Atención 24/7 con monitoreo aéreo permanente</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Sí, ofrecemos atención y disponibilidad 24/7, los 7 días de la semana. Garantizamos puntualidad y realizamos monitoreo aéreo permanente en todos los traslados al aeropuerto para ajustar la hora de recogida en caso de retrasos o adelantos de tu vuelo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">03</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Los conductores hablan inglés?</div>
+                        <div class="faq-subtitle hidden md:block">Conductor bilingüe para viajeros internacionales</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Sí, nuestro conductor titular es un profesional bilingüe (Español/Inglés), altamente capacitado para atender a viajeros internacionales, ejecutivos y artistas con total discreción, cortesía y estándares de servicio premium.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">04</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Cuál es la capacidad del vehículo y el espacio para equipaje?</div>
+                        <div class="faq-subtitle hidden md:block">Range Rover Sport para 4-5 pasajeros con amplio maletero</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Nuestra unidad ejecutiva (Range Rover Sport) tiene una capacidad cómoda y segura para 4 a 5 pasajeros. Además, cuenta con amplio espacio en el maletero para hasta 4 maletas de 23 kg, el cual es sanitizado diariamente.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">05</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Qué comodidades incluyen durante el viaje?</div>
+                        <div class="faq-subtitle hidden md:block">WiFi 5G, snacks, agua y servicio Pet Friendly</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Todos nuestros traslados incluyen WiFi 5G de alta velocidad, cargadores multi-dispositivo, agua mineral, toallitas húmedas y snacks de cortesía. Además, nuestro servicio es 100% Pet Friendly (se aceptan mascotas sin costo adicional).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 6 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">06</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿El servicio es legal y cuenta con seguros?</div>
+                        <div class="faq-subtitle hidden md:block">Licencia M.T.T. #14457 y registro SERNATUR activo</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Absolutamente. Operamos con total transparencia y seguridad: contamos con Licencia M.T.T. #14457, estamos registrados activamente en SERNATUR como prestadores de turismo sustentable, y disponemos de póliza de responsabilidad civil total y seguro de pasajeros al 100%.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 7 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">07</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Qué métodos de pago aceptan?</div>
+                        <div class="faq-subtitle hidden md:block">Efectivo, tarjetas, WebPay, Redcompra y transferencias</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Aceptamos múltiples formas de pago: efectivo, transferencia bancaria directa, tarjetas de crédito y débito (Visa, Mastercard, American Express), WebPay Plus y Redcompra a bordo. Todos los pagos en línea cuentan con encriptación SSL.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pregunta 8 -->
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">08</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿La tarifa puede cambiar o tener costos ocultos?</div>
+                        <div class="faq-subtitle hidden md:block">Tarifas fijas garantizadas sin sorpresas</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            No. Ofrecemos tarifas garantizadas y fijas acordadas antes del viaje. El precio que cotizas es el precio final, sin sorpresas, recargos de última hora ni costos ocultos por equipaje o esperas razonables.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA inferior -->
+        <div class="text-center mt-12 scroll-reveal">
+            <p class="text-gray-600 mb-6">¿No encontraste lo que buscabas? Contáctanos directamente.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://wa.me/56989625825" class="inline-flex items-center gap-2 bg-accent-blue hover:bg-accent-blue-dark text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    WhatsApp Directo
+                </a>
+                <a href="tel:+56989625825" class="inline-flex items-center gap-2 bg-white border-2 border-navy-950 text-navy-950 hover:bg-navy-950 hover:text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Llamar Ahora
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script para el efecto acordeón suave -->
+    <script is:inline>
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const content = item.querySelector('.faq-content');
+            const buttonCircle = item.querySelector('.faq-button');
+            const icon = item.querySelector('.faq-icon');
+            const isActive = item.classList.contains('active');
+
+            // Cierra todos los demás acordeones (efecto acordeón puro)
+            document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    const activeContent = activeItem.querySelector('.faq-content');
+                    const activeButton = activeItem.querySelector('.faq-button');
+                    const activeIcon = activeItem.querySelector('.faq-icon');
+                    activeContent.classList.remove('grid-rows-[1fr]');
+                    activeContent.classList.add('grid-rows-[0fr]');
+                    if (activeButton) {
+                        activeButton.classList.remove('blue');
+                        activeButton.classList.add('black');
+                    }
+                    if (activeIcon) activeIcon.classList.remove('rotate-45');
+                }
+            });
+
+            // Alterna el estado del elemento actual
+            if (isActive) {
+                item.classList.remove('active');
+                content.classList.remove('grid-rows-[1fr]');
+                content.classList.add('grid-rows-[0fr]');
+                buttonCircle.classList.remove('blue');
+                buttonCircle.classList.add('black');
+                if (icon) icon.classList.remove('rotate-45');
+            } else {
+                item.classList.add('active');
+                content.classList.remove('grid-rows-[0fr]');
+                content.classList.add('grid-rows-[1fr]');
+                buttonCircle.classList.remove('black');
+                buttonCircle.classList.add('blue');
+                if (icon) icon.classList.add('rotate-45');
+            }
+        }
+    </script>
+</section>
+<!-- 🔴🔴🔴 FIN SECCIÓN: PREGUNTAS FRECUENTES (FAQ) 🔴🔴 -->
+<!-- ============================================================ -->
 
 
     <!-- Driver & Payments -->
