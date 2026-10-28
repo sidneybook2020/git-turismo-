@@ -233,4 +233,114 @@ body { font-family: 'Inter', sans-serif; }
 }
 
 
+/* ============================================================
+   🔴 AGREGAR AL FINAL DEL global.css
+   Sección FAQ - Colores y estilos personalizados
+   ============================================================ */
+
+/* Colores Accent Blue para el theme de Tailwind v4 */
+@theme {
+  --color-accent-blue: #5b86b6;
+  --color-accent-blue-dark: #4a7299;
+  --color-accent-blue-light: #6d96c4;
+}
+
+/* Estilos del Acordeón FAQ */
+.faq-item {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e5e7eb;
+}
+.faq-item:last-child {
+  border-bottom: none;
+}
+.faq-item:hover {
+  background-color: #f9fafb;
+}
+
+/* Botón circular */
+.faq-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+.faq-button.black {
+  background-color: #000000;
+}
+.faq-button.blue {
+  background-color: #5b86b6;
+}
+.faq-button:hover {
+  transform: scale(1.05);
+}
+
+/* Transición del ícono */
+.faq-icon {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 20px;
+  height: 20px;
+}
+.faq-icon.rotate-45 {
+  transform: rotate(45deg);
+}
+
+/* Animación del contenido (grid trick) */
+.faq-content {
+  transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Número de pregunta */
+.faq-number {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  min-width: 32px;
+}
+
+/* Título y subtítulo */
+.faq-title {
+  font-weight: 700;
+  color: #111827;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+.faq-item.active .faq-title {
+  color: #1e293b;
+}
+.faq-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+/* Contenido expandido - LIMITADO AL ANCHO DEL TÍTULO */
+.faq-answer {
+  color: #4b5563;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  padding: 1rem 0 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .faq-answer {
+    padding-left: 40px;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 768px) {
+  .faq-answer {
+    padding-left: 48px;
+    padding-right: 96px;
+  }
+}
+
+
 
