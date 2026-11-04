@@ -1,0 +1,1142 @@
+---
+import '../styles/global.css';
+
+const siteTitle = "ST TRANSAE | Transporte Privado Ejecutivo Chile";
+const siteDescription = "Servicio de transporte privado ejecutivo en Santiago de Chile. Traslados aeropuerto, tours vitivinícolas, eventos. Disponible 24/7.";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{siteTitle}</title>
+    <meta name="description" content={siteDescription}>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+<!-- INICIO TOP BAR -->
+    <div class="bg-navy-950 text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1"><span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span> DISPONIBLE 24/7</span>
+                <span class="hidden md:inline">•</span>
+                <span class="hidden md:inline">ENGLISH SPOKEN</span>
+                <span class="hidden md:inline">•</span>
+                <span class="hidden md:inline">LICENCIA M.T.T. #14457</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <button class="text-gray-400 hover:text-white transition">ES</button>
+                <span class="text-gray-600">|</span>
+                <button class="text-white font-medium">EN</button>
+            </div>
+        </div>
+    </div>
+<!-- FIN TOP BAR -->
+
+<!-- INICIO HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <a href="#home" class="flex items-center gap-3 group">
+                        <div class="w-12 h-12 rounded-full damasco-gradient flex items-center justify-center shadow-lg group-hover:scale-105 transition">
+                            <span class="text-white font-bold text-lg font-display">ST</span>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-navy-950 tracking-tight font-display">ST TRANSAE</h1>
+                            <p class="text-xs text-gray-500 -mt-1">Private Transport Chile</p>
+                        </div>
+                    </a>
+                </div>                
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="#servicios" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">SERVICIOS</a>
+                    <a href="#vehiculo" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">VEHÍCULO</a>
+                    <a href="#info" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">INFO VIAJERO</a>
+                    <a href="#faq" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">FAQ</a>
+                    <a href="#pagos" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">PAGOS</a>
+                    <a href="#contacto" class="nav-link text-sm font-medium text-gray-700 hover:text-damasco-800 transition">CONTACTO</a>
+                </nav>
+                <div class="flex items-center gap-4">
+                    <a href="#contacto" class="hidden md:inline-flex btn-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold">RESERVAR</a>
+                    <button class="lg:hidden text-gray-700" onclick="toggleMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#servicios" class="block text-gray-700 py-2 font-medium" onclick="toggleMenu()">SERVICIOS</a>
+                <a href="#vehiculo" class="block text-gray-700 py-2 font-medium" onclick="toggleMenu()">VEHÍCULO</a>
+                <a href="#info" class="block text-gray-700 py-2 font-medium" onclick="toggleMenu()">INFO VIAJERO</a>
+                <a href="#faq" class="block text-gray-700 py-2 font-medium" onclick="toggleMenu()">PREGUNTAS FRECUENTES</a>
+                <a href="#pagos" class="block text-gray-700 py-2 font-medium" onclick="toggleMenu()">MÉTODOS DE PAGO</a>
+                <a href="#contacto" class="block text-gray-700 py-2 font-medium" onclick="toggleMenu()">CONTACTO</a>
+                <a href="#contacto" class="block btn-primary text-white text-center py-3 rounded-full font-semibold mt-4" onclick="toggleMenu()">RESERVAR AHORA</a>
+            </div>
+        </div>
+    </header>
+<!-- FIN HEADER / NAVEGACIÓN -->
+
+<!-- INICIO SECCIÓN HERO -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="hero-driver-bg" id="parallaxBg">
+            <img src="/portada-transae.jpg" alt="Fondo ST Transae" class="absolute inset-0 w-full h-full object-cover" style="will-change: transform;"/>
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-950/85 via-navy-950/60 to-navy-950/30 z-[1]"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent z-[1]"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 py-20 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <div class="mb-4">
+                        <span class="font-display text-2xl md:text-3xl text-damasco-600 tracking-wider">ST TRANSAE CHILE</span>
+                    </div>
+                    <h1 class="hero-title font-display text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6">
+                        TRANSPORTE PRIVADO<br>
+                        <span class="text-gradient">EJECUTIVO</span>
+                    </h1>
+                    <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
+                        Traslados en confianza y absoluta discreción en Santiago de Chile y principales destinos vitivinícolas, cordillera y costa central.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <a href="https://wa.me/56989625825" class="btn-damasco px-8 py-3.5 rounded-full font-semibold flex items-center gap-2 text-sm uppercase tracking-wide">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            COTIZAR VÍA WHATSAPP
+                        </a>
+                        <a href="#contacto" class="btn-outline-white px-8 py-3.5 rounded-full font-semibold text-sm uppercase tracking-wide">RESERVAR</a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 max-w-lg">
+                        <div class="indicator-card glass-card rounded-2xl p-4 text-center">
+                            <div class="font-display text-4xl text-white mb-1">100%</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider">Puntualidad</div>
+                        </div>
+                        <div class="indicator-card glass-card rounded-2xl p-4 text-center">
+                            <div class="font-display text-4xl text-white mb-1">5 PAX</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider">Capacidad</div>
+                        </div>
+                        <div class="indicator-card glass-card rounded-2xl p-4 text-center">
+                            <div class="font-display text-4xl text-white mb-1">24/7</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-wider">Atención</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="cotizar" class="animate-slide-up relative">
+                    <div class="absolute -top-4 right-4 md:-top-6 md:right-8 z-20">
+                        <div class="bg-navy-950/70 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 flex items-center gap-2 shadow-xl">
+                            <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <span class="text-white text-sm font-semibold">5.0</span>
+                            <span class="text-gray-300 text-xs">(280+ reseñas)</span>
+                        </div>
+                    </div>
+                    <div class="glass-white rounded-3xl shadow-2xl p-8 max-w-md ml-auto">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full damasco-gradient flex items-center justify-center">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900">Cotiza Tu Itinerario</h2>
+                        </div>
+                        <form class="space-y-4" onsubmit="handleQuote(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Traslado</label>
+                                <select class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                    <option>Traslado SCL → Destino</option>
+                                    <option>Destino → Aeropuerto SCL</option>
+                                    <option>Tour Vitivinícola</option>
+                                    <option>Tour Cordillera / Ski</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Origen</label>
+                                <input type="text" placeholder="Ej: Aeropuerto SCL" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Destino</label>
+                                <input type="text" placeholder="Ej: Hotel en Las Condes" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Fecha</label>
+                                    <input type="date" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Hora</label>
+                                    <input type="time" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full btn-damasco py-4 rounded-xl font-semibold flex items-center justify-center gap-2 uppercase tracking-wide">
+                                CONTINUAR Y COTIZAR VÍA WHATSAPP
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- FIN SECCIÓN HERO -->
+
+    <div class="section-divider"></div>
+
+<!-- INICIO SECCIÓN VEHÍCULO -->
+    <section id="vehiculo" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 scroll-reveal">
+                <span class="font-display text-damasco-600 text-sm md:text-base uppercase tracking-[0.15em] font-semibold block mb-3">Sedán Ejecutivo ST Transae</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy-950 tracking-tight leading-tight">MÁXIMA COMODIDAD Y<br>SEGURIDAD A BORDO</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg mt-4">Cada trayecto está concebido como una extensión de su oficina o hogar; con un conductor profesional bilingüe entrenado con total discreción y cortesía.</p>
+            </div>
+            <div class="scroll-reveal mb-16">
+                <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-stretch">
+                        <div class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl min-h-[300px] sm:min-h-[380px] md:min-h-[450px] lg:min-h-[520px] group">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 z-10 pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/0 via-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+                            <img src="/range-rover-blanco.jpg" alt="Range Rover Sport Ejecutivo ST Transae" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]" style="transform-origin: center center;" />
+                            <div class="absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
+                            <div class="absolute top-3 left-3 md:top-6 md:left-6 z-20 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-5 md:py-2 shadow-lg">
+                                <span class="font-display text-xs md:text-sm text-navy-950 tracking-wider uppercase">Range Rover Sport</span>
+                            </div>
+                        </div>
+                        <div class="p-5 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100">
+                            <div class="mb-2">
+                                <span class="text-damasco-600 font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">Experiencia de Primera Clase</span>
+                                <div class="w-10 md:w-12 h-1 bg-damasco-600 mt-2 md:mt-3 rounded-full"></div>
+                            </div>
+                            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy-950 mt-3 md:mt-4 mb-6 md:mb-10 leading-tight">Equipamiento y confort<br>de primera clase</h3>
+                            <div class="space-y-5 md:space-y-8">
+                                <div class="flex items-start gap-3 md:gap-5 group">
+                                    <div class="flex-shrink-0 w-11 h-11 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-damasco-50 flex items-center justify-center group-hover:bg-damasco-600 transition-colors duration-300">
+                                        <svg class="w-5 h-5 md:w-7 md:h-7 text-damasco-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display text-base sm:text-lg md:text-xl font-bold text-navy-950 mb-0.5 md:mb-1">Confort para 4–5 Pasajeros</h4>
+                                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Asientos de cuero ergonómicos y amplio espacio.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-5 group">
+                                    <div class="flex-shrink-0 w-11 h-11 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-damasco-50 flex items-center justify-center group-hover:bg-damasco-600 transition-colors duration-300">
+                                        <svg class="w-5 h-5 md:w-7 md:h-7 text-damasco-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display text-base sm:text-lg md:text-xl font-bold text-navy-950 mb-0.5 md:mb-1">Equipaje seguro & sanitizado</h4>
+                                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Capacidad para 4 maletas de 23 kg con desinfección diaria.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 md:gap-5 group">
+                                    <div class="flex-shrink-0 w-11 h-11 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-damasco-50 flex items-center justify-center group-hover:bg-damasco-600 transition-colors duration-300">
+                                        <svg class="w-5 h-5 md:w-7 md:h-7 text-damasco-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-display text-base sm:text-lg md:text-xl font-bold text-navy-950 mb-0.5 md:mb-1">WiFi 5G & Conectividad 24/7</h4>
+                                        <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Cargadores multi-dispositivo y conexión continua.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 scroll-reveal">
+                <div class="unified-hover-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">5 PAX</div>
+                    <p class="text-gray-600 text-sm">Asientos ergonómicos y amplio maletero</p>
+                </div>
+                <div class="unified-hover-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">5G WIFI</div>
+                    <p class="text-gray-600 text-sm">Internet satelital de alta velocidad gratuito</p>
+                </div>
+                <div class="unified-hover-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">100%</div>
+                    <p class="text-gray-600 text-sm">Póliza de responsabilidad civil total</p>
+                </div>
+                <div class="unified-hover-card bg-white rounded-2xl p-8 border border-gray-100 shadow-lg text-center">
+                    <div class="feature-icon w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg>
+                    </div>
+                    <div class="font-display text-4xl text-navy-950 mb-2">FREE</div>
+                    <p class="text-gray-600 text-sm">Agua mineral, toallitas & snacks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- FIN SECCIÓN VEHÍCULO -->
+
+    <div class="section-divider"></div>
+
+<!-- INICIO SECCIÓN SERVICIOS -->
+<section id="servicios" class="py-16 md:py-24 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-12 gap-6 md:gap-8 mb-8 scroll-reveal">
+            <div class="hidden md:block md:col-span-2"></div>
+            <div class="md:col-span-9">
+                <span class="text-damasco-600 font-display text-sm uppercase tracking-[0.2em] font-semibold block mb-3">Servicios de Traslado Personalizado</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-navy-950 leading-tight">
+                    SOLUCIONES<br>
+                    <span class="text-gray-400">A TU MEDIDA</span>
+                </h2>
+                <p class="text-gray-500 text-sm md:text-base mt-4 max-w-xl leading-relaxed">Soluciones adaptadas a la exigencia de negocios, familias exigentes y artistas que buscan tranquilidad y eficiencia en sus conexiones.</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-b border-gray-200 group scroll-reveal">
+            <div class="md:col-span-2 text-sm text-gray-500 font-medium tracking-wide">/Aeropuerto/</div>
+            <div class="md:col-span-6">
+                <h3 class="text-2xl md:text-3xl font-bold text-navy-950 leading-snug">TRASLADO AEROPUERTO SCL</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed mt-3 max-w-md">Monitoreo permanente aéreo con puntualidad garantizada. Espera con cartel en puerta de sala internacional, choferes bilingües y amenidades de cortesía.</p>
+                <div class="flex flex-wrap gap-3 mt-5">
+                    <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">WiFi 5G</span>
+                    <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">Pet Friendly</span>
+                </div>
+            </div>
+            <div class="md:col-span-4">
+                <div class="rounded-3xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Traslado Aeropuerto SCL" class="w-full h-48 md:h-44 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-b border-gray-200 group scroll-reveal">
+            <div class="md:col-span-2 text-sm text-gray-500 font-medium tracking-wide">/Hoteles/</div>
+            <div class="md:col-span-6">
+                <h3 class="text-2xl md:text-3xl font-bold text-navy-950 leading-snug">HOTELES & RESIDENCIAS</h3>
+                <p class="text-gray-500 text-xs md:text-sm leading-relaxed mt-3 max-w-md">Conexiones exclusivas a hoteles de Las Condes, Vitacura, Providencia, La Dehesa y Santiago Centro. Traslados hacia puertas de diseño con tarifas fijas.</p>
+                <div class="flex flex-wrap gap-3 mt-5">
+                    <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">WiFi 5G</span>
+                    <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">Pet Friendly</span>
+                </div>
+            </div>
+            <div class="md:col-span-4">
+                <div class="rounded-3xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hoteles y Residencias" class="w-full h-48 md:h-44 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+            </div>
+        </div>
+        <div id="moreServices" data-open="false" style="display:grid; grid-template-rows:0fr; transition:grid-template-rows 0.8s cubic-bezier(0.4,0,0.2,1);">
+            <div class="overflow-hidden">
+                <div id="servicesExpanded" class="scroll-mt-28"></div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-b border-gray-200 group">
+                    <div class="md:col-span-2 text-sm text-gray-500 font-medium tracking-wide">/Viñas/</div>
+                    <div class="md:col-span-6">
+                        <h3 class="text-2xl md:text-3xl font-bold text-navy-950 leading-snug">TOURS VALLES VITIVINÍCOLAS</h3>
+                        <p class="text-gray-500 text-xs md:text-sm leading-relaxed mt-3 max-w-md">Rutas exclusivas por viñedos de Casablanca, Valle del Maipo, Colchagua, Concha y Toro. Unidades a disposición durante el día según itinerario.</p>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">WiFi 5G</span>
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">Pet Friendly</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <div class="rounded-3xl overflow-hidden shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Tours Valles Vitivinícolas" class="w-full h-48 md:h-44 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-b border-gray-200 group">
+                    <div class="md:col-span-2 text-sm text-gray-500 font-medium tracking-wide">/Ski/</div>
+                    <div class="md:col-span-6">
+                        <h3 class="text-2xl md:text-3xl font-bold text-navy-950 leading-snug">CENTROS DE SKI CORDILLERA</h3>
+                        <p class="text-gray-500 text-xs md:text-sm leading-relaxed mt-3 max-w-md">Rutas seguras hacia Farellones, La Parva y Portillo. Vehículo con equipamiento de montaña, cadenas certificadas y conductores capacitados.</p>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">WiFi 5G</span>
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">Pet Friendly</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <div class="rounded-3xl overflow-hidden shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&w=800&q=80" alt="Centros de Ski Cordillera" class="w-full h-48 md:h-44 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-b border-gray-200 group">
+                    <div class="md:col-span-2 text-sm text-gray-500 font-medium tracking-wide">/Eventos/</div>
+                    <div class="md:col-span-6">
+                        <h3 class="text-2xl md:text-3xl font-bold text-navy-950 leading-snug">BODAS, RECITALES & GALA</h3>
+                        <p class="text-gray-500 text-xs md:text-sm leading-relaxed mt-3 max-w-md">Asistencia garantizada a eventos masivos en Macro Zona. Conducción de alta prominencia y alta demanda de traslados para ocasiones especiales.</p>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">WiFi 5G</span>
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">Pet Friendly</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <div class="rounded-3xl overflow-hidden shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Bodas, Recitales y Gala" class="w-full h-48 md:h-44 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center py-10 border-b border-gray-200 group">
+                    <div class="md:col-span-2 text-sm text-gray-500 font-medium tracking-wide">/Costa/</div>
+                    <div class="md:col-span-6">
+                        <h3 class="text-2xl md:text-3xl font-bold text-navy-950 leading-snug">VALPARAÍSO, VIÑA & FAENAS</h3>
+                        <p class="text-gray-500 text-xs md:text-sm leading-relaxed mt-3 max-w-md">Viajes ejecutivos hacia Valparaíso patrimonial, Viña del Mar, San Antonio. Derroteros por zonas industriales y factorías de gran flujo comercial.</p>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">WiFi 5G</span>
+                            <span class="inline-flex bg-white border border-gray-200 rounded-full px-4 py-2 text-xs text-gray-600 shadow-sm">Pet Friendly</span>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4">
+                        <div class="rounded-3xl overflow-hidden shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Valparaíso, Viña y Faenas" class="w-full h-48 md:h-44 lg:h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <button onclick="toggleServices(this)" class="text-damasco-700 font-semibold text-sm underline underline-offset-4 hover:text-damasco-900 transition-colors">VER MÁS</button>
+        </div>
+    </div>
+</section>
+<!-- FIN SECCIÓN SERVICIOS -->
+
+<!-- INICIO SECCIÓN CONTACTO (CHÓFER Y FORMULARIO) -->
+<section id="contacto" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16 scroll-reveal">
+      <span class="font-display text-damasco-600 text-sm md:text-base uppercase tracking-[0.15em] font-semibold block mb-3">
+        Contacto Directo
+      </span>
+      <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy-950 tracking-tight leading-tight">
+        RESERVA TU VIAJE
+      </h2>
+      <p class="text-gray-600 max-w-3xl mx-auto text-lg mt-4">
+        Elige la opción que mejor se adapte a ti. Sin complicaciones y con la confianza que mereces.
+      </p>
+    </div>
+    <div class="scroll-reveal">
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-stretch">
+          <div class="p-5 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 unified-hover-card">
+            <div class="mb-4 md:mb-6">
+              <span class="text-damasco-600 font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">
+                Nuestro Equipo
+              </span>
+              <div class="w-10 md:w-12 h-1 bg-damasco-600 mt-2 md:mt-3 rounded-full"></div>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy-950 mt-3 md:mt-4 mb-6 md:mb-8 leading-tight">
+              CONDUCTOR<br>EJECUTIVO
+            </h3>
+            <div class="flex flex-col sm:flex-row items-start gap-5 md:gap-6 mb-6 md:mb-8">
+              <div class="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-full bg-damasco-600 flex items-center justify-center text-white font-display text-2xl md:text-3xl font-bold shadow-lg">
+                SA
+              </div>
+              <div class="flex-1">
+                <h4 class="font-display text-xl md:text-2xl font-bold text-navy-950 mb-1">
+                  Sergio Astudillo E.
+                </h4>
+                <p class="text-damasco-600 font-semibold text-sm md:text-base mb-3">
+                  Conductor Ejecutivo
+                </p>
+                <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                  Nos comprometemos con cada pasajero en brindarle una experiencia impecable, puntual y segura. Su tranquilidad es nuestra prioridad.
+                </p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-8">
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-damasco-50 text-damasco-700 text-xs md:text-sm font-semibold border border-damasco-100">
+                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                </svg>
+                English Spoken
+              </span>
+              <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-navy-950 text-white text-xs md:text-sm font-semibold border border-navy-900">
+                <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+                Licencia M.T.T.
+              </span>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 group">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center group-hover:bg-damasco-50 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-gray-500 group-hover:text-damasco-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Teléfono / WhatsApp</p>
+                  <a href="tel:+56989625825" class="text-navy-950 font-medium hover:text-damasco-600 transition">
+                    +56 9 8962 5825
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 group">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center group-hover:bg-damasco-50 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-gray-500 group-hover:text-damasco-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Correo</p>
+                  <a href="mailto:sergioastud@gmail.com" class="text-navy-950 font-medium hover:text-damasco-600 transition">
+                    sergioastud@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl min-h-[300px] sm:min-h-[380px] md:min-h-[450px] lg:min-h-[520px] group unified-hover-card">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 z-10 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-white/0 via-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
+            <img src="/sergio-astudillo.jpg" alt="Foto del chófer ejecutivo" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]" style="transform-origin: center center;"/>
+            <div class="absolute bottom-0 left-0 right-0 h-24 md:h-32 bg-gradient-to-t from-black/40 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute top-3 left-3 md:top-6 md:left-6 z-20 bg-white/95 backdrop-blur-sm rounded-full px-3 py-1.5 md:px-5 md:py-2 shadow-lg">
+              <span class="font-display text-xs md:text-sm text-navy-950 tracking-wider uppercase">
+                Conductor Ejecutivo
+              </span>
+            </div>
+            <div class="absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6 z-20">
+              <div class="bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 md:px-5 md:py-4 shadow-lg">
+                <p class="font-display text-lg md:text-xl text-navy-950 tracking-wide">
+                  ATENCIÓN PERSONALIZADA
+                </p>
+                <p class="text-gray-600 text-xs md:text-sm mt-1">
+                  Puntualidad, discreción y confianza en cada trayecto.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 md:mt-8 scroll-reveal">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
+        <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 p-5 sm:p-6 md:p-8 unified-hover-card">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-end">
+            <div class="lg:col-span-3">
+              <span class="text-damasco-600 font-display text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold block mb-2">
+                Reserva Online
+              </span>
+              <h4 class="font-display text-2xl md:text-3xl font-bold text-navy-950 leading-tight">
+                HABLEMOS DE TU PRÓXIMO VIAJE
+              </h4>
+            </div>
+            <div class="lg:col-span-6">
+               <form id="contactForm" class="grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="handleContactEmail(event)">
+                <input type="text" name="nombre" placeholder="Nombre y apellido" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50"/>
+                <input type="tel" name="telefono" placeholder="Teléfono" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50"/>
+                <input type="email" name="email" placeholder="Email" class="w-full input-field rounded-xl px-4 py-3 bg-gray-50 md:col-span-2"/>
+              </form>
+            </div>
+            <div class="lg:col-span-3 flex flex-col gap-3">
+              <a href="https://wa.me/56989625825" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-white border border-gray-200 text-navy-950 font-semibold text-sm hover:bg-gray-50 transition shadow-sm">
+                WhatsApp
+              </a>     
+              <button type="submit" form="contactForm" class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-damasco-800 hover:bg-damasco-700 text-white font-semibold text-sm transition shadow-md">
+                Enviar Mensaje
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN CONTACTO (CHÓFER Y FORMULARIO) -->
+
+<!-- INICIO SECCIÓN MÉTODOS DE PAGO -->
+<section id="pagos" class="payment-section py-10 px-4 md:px-8 lg:py-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-stretch">
+      <div class="relative bg-white rounded-3xl card-shadow overflow-hidden flex flex-col p-6 md:p-8 lg:p-10">
+        <div class="mb-6">
+          <div class="inline-flex items-center gap-2 bg-navy-900 text-white px-3 py-1.5 rounded-lg shadow-sm">
+            <div class="w-2 h-2 bg-damasco-500 rounded-sm"></div>
+            <span class="font-bold text-[10px] tracking-widest uppercase">Métodos de Pago</span>
+          </div>
+        </div>
+        <div class="mb-8">
+          <h2 class="flex flex-col">
+            <span class="block font-black text-navy-900 leading-tight text-5xl sm:text-6xl lg:text-7xl">
+              Paga como<br class="hidden sm:block" /> quieras
+            </span>
+            <span class="block mt-3 text-damasco-600 font-bold text-base sm:text-lg md:text-xl tracking-[0.15em] uppercase">
+              Rápido y seguro.
+            </span>
+          </h2>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-md">
+          Elige la opción que mejor se adapte a ti. Sin complicaciones y con la confianza que mereces en cada compra.
+        </p>
+        <div class="space-y-3 mb-8">
+          <div class="payment-card-hover group bg-white border border-gray-100 border-l-4 border-l-damasco-500 rounded-xl p-4 cursor-pointer">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-damasco-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-damasco-500 transition-colors">
+                <svg class="w-6 h-6 text-damasco-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-navy-900 font-bold text-base mb-1">Efectivo</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">Paga en persona al momento de recibir tu pedido.</p>
+              </div>
+            </div>
+          </div>
+          <div class="payment-card-hover group bg-white border border-gray-100 border-l-4 border-l-damasco-500 rounded-xl p-4 cursor-pointer">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-damasco-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-damasco-500 transition-colors">
+                <svg class="w-6 h-6 text-damasco-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-navy-900 font-bold text-base mb-1">Transferencia</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">Transferencia bancaria directa, sin costos extra.</p>
+              </div>
+            </div>
+          </div>
+          <div class="payment-card-hover group bg-white border border-gray-100 border-l-4 border-l-damasco-500 rounded-xl p-4 cursor-pointer">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-damasco-50 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-damasco-500 transition-colors">
+                <svg class="w-6 h-6 text-damasco-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-navy-900 font-bold text-base mb-1">Tarjetas</h3>
+                <p class="text-gray-500 text-xs leading-relaxed">Crédito y débito: Visa, Mastercard y American Express.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="w-full bg-damasco-800 hover:bg-damasco-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5 group">
+          <span class="text-sm tracking-wide">Comprar ahora</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="relative rounded-3xl overflow-hidden flex flex-col min-h-[500px] lg:min-h-0">
+        <div class="absolute inset-0 warm-glow"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-100 via-orange-50 to-white"></div>
+        <img src="/Tarjeta1.jpg" alt="Una tarjeta de crédito" class="absolute inset-0 w-full h-full object-cover object-top"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-transparent to-white/10"></div>
+        <div class="absolute top-6 right-6 floating-badge bg-white/90 border border-damasco-200 rounded-full px-4 py-2 shadow-lg flex items-center gap-2">
+          <div class="w-2 h-2 bg-damasco-500 rounded-full animate-pulse"></div>
+          <span class="text-navy-900 text-xs font-bold">Contacto instantáneo</span>
+          <svg class="w-4 h-4 text-damasco-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+        </div>
+        <div class="absolute bottom-24 left-6 floating-badge bg-white/90 border border-navy-200 rounded-full px-4 py-2 shadow-lg flex items-center gap-2">
+          <svg class="w-4 h-4 text-damasco-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+          <span class="text-navy-900 text-xs font-bold">Pago 100% Seguro</span>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
+            <div class="floating-badge bg-white/95 border border-gray-200 rounded-xl p-3 shadow-md">
+              <div class="w-8 h-8 bg-damasco-100 rounded-lg flex items-center justify-center mb-2">
+                <svg class="w-4 h-4 text-damasco-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <p class="text-navy-900 text-[10px] font-black uppercase leading-tight">Conexión<br/>Instantánea</p>
+              <p class="text-gray-500 text-[9px] leading-tight mt-0.5">Rápido y sin esperas.</p>
+            </div>
+            <div class="floating-badge bg-white/95 border border-gray-200 rounded-xl p-3 shadow-md">
+              <div class="w-8 h-8 bg-navy-100 rounded-lg flex items-center justify-center mb-2">
+                <svg class="w-4 h-4 text-navy-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <p class="text-navy-900 text-[10px] font-black uppercase leading-tight">Pago<br/>Seguro</p>
+              <p class="text-gray-500 text-[9px] leading-tight mt-0.5">Transacciones protegidas.</p>
+            </div>
+            <div class="floating-badge bg-white/95 border border-gray-200 rounded-xl p-3 shadow-md">
+              <div class="w-8 h-8 bg-damasco-100 rounded-lg flex items-center justify-center mb-2">
+                <svg class="w-4 h-4 text-damasco-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.477 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                </svg>
+              </div>
+              <p class="text-navy-900 text-[10px] font-black uppercase leading-tight">Sin Costos<br/>Ocultos</p>
+              <p class="text-gray-500 text-[9px] leading-tight mt-0.5">Precios 100% transparentes.</p>
+            </div>
+            <div class="floating-badge bg-white/95 border border-gray-200 rounded-xl p-3 shadow-md">
+              <div class="w-8 h-8 bg-navy-100 rounded-lg flex items-center justify-center mb-2">
+                <svg class="w-4 h-4 text-navy-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <p class="text-navy-900 text-[10px] font-black uppercase leading-tight">Facturación<br/>Disponible</p>
+              <p class="text-gray-500 text-[9px] leading-tight mt-0.5">Solicítala al instante.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN MÉTODOS DE PAGO -->
+
+<!-- INICIO SECCIÓN DASHBOARD DEL VIAJERO -->
+    <section id="info" class="dashboard-bg py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 scroll-reveal">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-4">
+                    <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
+                    <span class="text-white text-sm font-medium live-indicator font-display tracking-wider">EN VIVO</span>
+                </div>
+                <span class="font-display text-damasco-400 text-sm md:text-base uppercase tracking-[0.15em] font-semibold block mb-3">Información en Tiempo Real</span>
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">DASHBOARD DEL VIAJERO</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto mt-4 text-lg">Información útil en tiempo real para tu viaje en Chile</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 scroll-reveal">
+                <div class="unified-hover-card glass-card rounded-2xl p-6">
+                    <h3 class="font-display text-xl text-white mb-4 flex items-center gap-2 tracking-wider">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        DIVISAS
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">USD</span><span class="font-display text-xl text-white">$967.20</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">EUR</span><span class="font-display text-xl text-white">$1,045.20</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">BRL</span><span class="font-display text-xl text-white">$168.40</span></div>
+                    </div>
+                </div>
+                <div class="unified-hover-card glass-card rounded-2xl p-6">
+                    <h3 class="font-display text-xl text-white mb-4 flex items-center gap-2 tracking-wider">
+                        <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        CLIMA POR ZONAS
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Santiago SCL</span><span class="font-display text-xl text-white">24°C</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Farellones / Ski</span><span class="font-display text-xl text-white">7°C</span></div>
+                        <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Valparaíso / Costa</span><span class="font-display text-xl text-white">19°C</span></div>
+                    </div>
+                </div>
+                <div class="unified-hover-card glass-card rounded-2xl p-4 md:p-6">
+                    <h3 class="font-display text-lg md:text-xl text-white mb-3 md:mb-4 flex items-center gap-2 tracking-wider">
+                        <svg class="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        HORA OFICIAL SCL
+                    </h3>
+                    <div class="text-center py-2">
+                        <div class="font-display text-3xl sm:text-4xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-mono mb-2 whitespace-nowrap tracking-wide" id="liveTime">18:44:29</div>
+                        <div class="text-gray-400 text-xs md:text-sm">UTC -3 · Santiago, Chile</div>
+                    </div>
+                </div>
+                <div class="unified-hover-card bg-gradient-to-br from-damasco-800 to-damasco-900 rounded-2xl p-6 border border-damasco-700">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center"><span class="text-damasco-800 font-bold text-xs font-display">SERNATUR</span></div>
+                    </div>
+                    <h3 class="font-display text-xl text-white mb-2 tracking-wider">REGISTRO NACIONAL</h3>
+                    <p class="text-white/80 text-sm mb-3">Certificado de prestador de turismo sustentable</p>
+                    <div class="bg-white/20 rounded-lg px-3 py-2"><span class="text-white text-xs font-mono">Registro activo y verificado ✓</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- FIN SECCIÓN DASHBOARD DEL VIAJERO -->
+
+<!-- INICIO SECCIÓN PREGUNTAS FRECUENTES (FAQ) -->
+<section id="faq" class="py-20 bg-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 scroll-reveal">
+            <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5 mb-4">
+                <svg class="w-4 h-4 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="font-display text-accent-blue text-sm uppercase tracking-wider">Resolvemos tus dudas</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-6xl font-bold text-navy-950 mt-3 mb-6 tracking-tight">PREGUNTAS FRECUENTES</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Todo lo que necesitas saber para viajar con total tranquilidad, seguridad y confort con ST TRANSAE.</p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden scroll-reveal">
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">01</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Qué tipo de servicios de transporte ofrecen?</div>
+                        <div class="faq-subtitle hidden md:block">Transporte privado ejecutivo en Santiago y zonas aledañas</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Ofrecemos transporte privado ejecutivo y servicio de chófer en Santiago de Chile y zonas aledañas. Nuestros servicios incluyen: traslados al/del Aeropuerto SCL, tours a valles vitivinícolas (Casablanca, Maipo, Colchagua), traslados a centros de ski (Farellones, La Parva, Portillo), rutas costeras (Valparaíso, Viña del Mar) y transporte para eventos especiales, bodas o recitales.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">02</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿El servicio está disponible las 24 horas?</div>
+                        <div class="faq-subtitle hidden md:block">Atención 24/7 con monitoreo aéreo permanente</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Sí, ofrecemos atención y disponibilidad 24/7, los 7 días de la semana. Garantizamos puntualidad y realizamos monitoreo aéreo permanente en todos los traslados al aeropuerto para ajustar la hora de recogida en caso de retrasos o adelantos de tu vuelo.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">03</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Los conductores hablan inglés?</div>
+                        <div class="faq-subtitle hidden md:block">Conductor bilingüe para viajeros internacionales</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Sí, nuestro conductor titular es un profesional bilingüe (Español/Inglés), altamente capacitado para atender a viajeros internacionales, ejecutivos y artistas con total discreción, cortesía y estándares de servicio premium.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">04</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Cuál es la capacidad del vehículo y el espacio para equipaje?</div>
+                        <div class="faq-subtitle hidden md:block">Range Rover Sport para 4-5 pasajeros con amplio maletero</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Nuestra unidad ejecutiva (Range Rover Sport) tiene una capacidad cómoda y segura para 4 a 5 pasajeros. Además, cuenta con amplio espacio en el maletero para hasta 4 maletas de 23 kg, el cual es sanitizado diariamente.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">05</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Qué comodidades incluyen durante el viaje?</div>
+                        <div class="faq-subtitle hidden md:block">WiFi 5G, snacks, agua y servicio Pet Friendly</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Todos nuestros traslados incluyen WiFi 5G de alta velocidad, cargadores multi-dispositivo, agua mineral, toallitas húmedas y snacks de cortesía. Además, nuestro servicio es 100% Pet Friendly (se aceptan mascotas sin costo adicional).
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">06</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿El servicio es legal y cuenta con seguros?</div>
+                        <div class="faq-subtitle hidden md:block">Licencia M.T.T. #14457 y registro SERNATUR activo</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Absolutamente. Operamos con total transparencia y seguridad: contamos con Licencia M.T.T. #14457, estamos registrados activamente en SERNATUR como prestadores de turismo sustentable, y disponemos de póliza de responsabilidad civil total y seguro de pasajeros al 100%.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">07</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿Qué métodos de pago aceptan?</div>
+                        <div class="faq-subtitle hidden md:block">Efectivo, tarjetas, WebPay, Redcompra y transferencias</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            Aceptamos múltiples formas de pago: efectivo, transferencia bancaria directa, tarjetas de crédito y débito (Visa, Mastercard, American Express), WebPay Plus y Redcompra a bordo. Todos los pagos en línea cuentan con encriptación SSL.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-toggle w-full flex items-center gap-4 md:gap-6 p-6 md:p-8 text-left focus:outline-none" onclick="toggleFaq(this)">
+                    <span class="faq-number hidden sm:block">08</span>
+                    <div class="flex-1">
+                        <div class="faq-title">¿La tarifa puede cambiar o tener costos ocultos?</div>
+                        <div class="faq-subtitle hidden md:block">Tarifas fijas garantizadas sin sorpresas</div>
+                    </div>
+                    <div class="faq-button black">
+                        <svg class="faq-icon text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </div>
+                </button>
+                <div class="faq-content grid grid-rows-[0fr] transition-all duration-500 ease-in-out">
+                    <div class="overflow-hidden">
+                        <div class="faq-answer">
+                            No. Ofrecemos tarifas garantizadas y fijas acordadas antes del viaje. El precio que cotizas es el precio final, sin sorpresas, recargos de última hora ni costos ocultos por equipaje o esperas razonables.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 scroll-reveal">
+            <p class="text-gray-600 mb-6">¿No encontraste lo que buscabas? Contáctanos directamente.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="https://wa.me/56989625825" class="inline-flex items-center gap-2 bg-damasco-800 hover:bg-damasco-700 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 shadow-lg hover:shadow-xl">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    WhatsApp Directo
+                </a>
+                <a href="tel:+56989625825" class="inline-flex items-center gap-2 bg-white border-2 border-navy-950 text-navy-950 hover:bg-navy-950 hover:text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Llamar Ahora
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FIN SECCIÓN PREGUNTAS FRECUENTES (FAQ) -->
+
+<!-- INICIO SECCIÓN CTA FINAL -->
+    <section class="navy-gradient py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-damasco-800 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-damasco-800 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10 scroll-reveal">
+            <span class="font-display text-damasco-400 text-sm md:text-base uppercase tracking-[0.15em] font-semibold block mb-3">¿Listo para viajar?</span>
+            <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">RESERVA TU VEHÍCULO<br>EJECUTIVO HOY</h2>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-3xl mx-auto">Garantizamos puntualidad, tarifas sin sorpresas de última hora, plan de seguridad para Santiago y atención personalizada de principio a fin.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/56989625825" class="whatsapp-btn text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 text-lg">
+                    WHATSAPP DIRECTO
+                </a>
+                <a href="tel:+56989625825" class="btn-outline-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 text-lg">
+                    LLAMAR DIRECTO
+                </a>
+            </div>
+        </div>
+    </section>
+<!-- FIN SECCIÓN CTA FINAL -->
+
+<!-- INICIO FOOTER -->
+    <footer class="!bg-navy-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-full damasco-gradient flex items-center justify-center"><span class="text-white font-bold text-lg font-display">ST</span></div>
+                        <div><h3 class="font-display text-2xl tracking-wide">ST TRANSAE</h3><p class="text-xs text-gray-400">Private Transport & Chauffeur Chile</p></div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Empresa de transporte privado y chóferes ejecutivos en Santiago de Chile. Servicio premium con estándares internacionales.</p>
+                </div>
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-damasco-400 tracking-wider">CANALES DIRECTOS</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="tel:+56989625825" class="hover:text-white transition">+56 9 8962 5825</a></li>
+                        <li><a href="mailto:sergioastud@gmail.com" class="hover:text-white transition">sergioastud@gmail.com</a></li>
+                        <li>Santiago Metropolitano</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-damasco-400 tracking-wider">SEGURIDAD & PAGOS</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>Licencia M.T.T. #14457</li>
+                        <li>Seguro de pasajeros 100%</li>
+                        <li>Registro SERNATUR activo</li>
+                        <li>Visa · Mastercard · WebPay · Amex</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-display text-lg mb-4 text-damasco-400 tracking-wider">CERTIFICACIONES</h4>
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-8 h-8 bg-white rounded flex items-center justify-center"><span class="text-damasco-800 font-bold text-xs font-display">S</span></div>
+                            <span class="font-display text-sm tracking-wider">SERNATUR</span>
+                        </div>
+                        <p class="text-xs text-gray-400">Registro Nacional de Prestadores de Turismo Sustentable - Gobierno de Chile</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 ST TRANSAE Chile. Todos los derechos reservados.</p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition">Términos & Condiciones</a>
+                    <a href="#" class="hover:text-white transition">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!-- FIN FOOTER -->
+
+<!-- INICIO BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/56989625825" class="fixed bottom-6 right-6 z-50 whatsapp-btn w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+<!-- FIN BOTÓN FLOTANTE WHATSAPP -->
+
+    <!-- Script inline para mantener la funcionalidad global exacta del HTML original -->
+    <script is:inline>
+        const parallaxBg = document.getElementById('parallaxBg');
+        let ticking = false;
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * 0.4;
+            if (parallaxBg) {
+                parallaxBg.style.transform = `translateY(${rate}px) scale(1.05)`;
+            }
+            ticking = false;
+        }
+        window.addEventListener('scroll', function() {
+            if (!ticking) { 
+                window.requestAnimationFrame(updateParallax); 
+                ticking = true; 
+            }
+        });
+
+        function toggleMenu() { 
+            document.getElementById('mobileMenu').classList.toggle('hidden'); 
+        }
+
+        function handleQuote(e) {
+            e.preventDefault();
+            const form = e.target;
+            const tipo = form.querySelector('select').value;
+            const inputs = form.querySelectorAll('input');
+            const message = `Hola ST TRANSAE! Quiero cotizar:%0A%0A Tipo: ${tipo}%0A📍 Origen: ${inputs[0].value}%0A🎯 Destino: ${inputs[1].value}%0A Fecha: ${inputs[2].value}%0A⏰ Hora: ${inputs[3].value}`;
+            window.open(`https://wa.me/56989625825?text=${message}`, '_blank');
+        }
+
+        function toggleServices(btn) {
+            const wrap = document.getElementById('moreServices');
+            const open = wrap.dataset.open === 'true';
+            if (open) {
+                wrap.style.gridTemplateRows = '0fr';
+                wrap.dataset.open = 'false';
+                btn.textContent = 'VER MÁS';
+            } else {
+                wrap.style.gridTemplateRows = '1fr';
+                wrap.dataset.open = 'true';
+                btn.textContent = 'VER MENOS';
+                setTimeout(() => {
+                    document.getElementById('servicesExpanded').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 400);
+            }
+        }
+
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const content = item.querySelector('.faq-content');
+            const buttonCircle = item.querySelector('.faq-button');
+            const icon = item.querySelector('.faq-icon');
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+                if (activeItem !== item) {
+                    activeItem.classList.remove('active');
+                    const activeContent = activeItem.querySelector('.faq-content');
+                    const activeButton = activeItem.querySelector('.faq-button');
+                    const activeIcon = activeItem.querySelector('.faq-icon');
+                    activeContent.classList.remove('grid-rows-[1fr]');
+                    activeContent.classList.add('grid-rows-[0fr]');
+                    if (activeButton) { activeButton.classList.remove('blue'); activeButton.classList.add('black'); }
+                    if (activeIcon) activeIcon.classList.remove('rotate-45');
+                }
+            });
+            if (isActive) {
+                item.classList.remove('active');
+                content.classList.remove('grid-rows-[1fr]');
+                content.classList.add('grid-rows-[0fr]');
+                buttonCircle.classList.remove('blue');
+                buttonCircle.classList.add('black');
+                if (icon) icon.classList.remove('rotate-45');
+            } else {
+                item.classList.add('active');
+                content.classList.remove('grid-rows-[0fr]');
+                content.classList.add('grid-rows-[1fr]');
+                buttonCircle.classList.remove('black');
+                buttonCircle.classList.add('blue');
+                if (icon) icon.classList.add('rotate-45');
+            }
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const santiagoTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Santiago' }));
+            const h = String(santiagoTime.getHours()).padStart(2, '0');
+            const m = String(santiagoTime.getMinutes()).padStart(2, '0');
+            const s = String(santiagoTime.getSeconds()).padStart(2, '0');
+            const timeEl = document.getElementById('liveTime');
+            if (timeEl) timeEl.textContent = `${h}:${m}:${s}`;
+        }
+        setInterval(updateClock, 1000); 
+        updateClock();
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        function handleContactEmail(e) {
+            e.preventDefault();
+            const form = e.target;
+            const nombre = form.querySelector('input[name="nombre"]').value;
+            const telefono = form.querySelector('input[name="telefono"]').value;
+            const email = form.querySelector('input[name="email"]').value;
+            const subject = encodeURIComponent(`Nuevo mensaje de contacto de ${nombre}`);
+            const body = encodeURIComponent(`Nombre: ${nombre}\nTeléfono: ${telefono}\nEmail: ${email}`);
+            window.location.href = `mailto:paulahansen23@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
